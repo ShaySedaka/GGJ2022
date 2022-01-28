@@ -53,6 +53,9 @@ public abstract class Hero : MonoBehaviour
     #endregion
 
     [SerializeField]
+    protected Animator _animator;
+
+    [SerializeField]
     public float MaxHeroStamina;
     [SerializeField]
     public float CurrentHeroStamina;

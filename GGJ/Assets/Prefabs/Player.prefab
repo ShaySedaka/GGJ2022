@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 6023173342074309297}
   - component: {fileID: 6023173342074309262}
   - component: {fileID: 6023173342074309263}
+  - component: {fileID: 7419845012997252197}
   - component: {fileID: 6023173342074309260}
   m_Layer: 0
   m_Name: Zena
@@ -205,6 +206,7 @@ MonoBehaviour:
   HeavyAttackCooldown: 2
   _utilityStaminaCost: 25
   UtilityCooldown: 1
+  _animator: {fileID: 7419845012997252197}
   MaxHeroStamina: 100
   CurrentHeroStamina: 50
   HeroStaminaRegenerate: 5
@@ -223,6 +225,25 @@ MonoBehaviour:
   _dashSpeed: 150
   _dashTime: 0.1
   _attackSpeedBonusForTesting: 1
+--- !u!95 &7419845012997252197
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6023173342074309296}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a757c05d6ff4cc44ba24bb625cf64336, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &6023173342074309260
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -658,6 +679,7 @@ MonoBehaviour:
   HeavyAttackCooldown: 2
   _utilityStaminaCost: 0
   UtilityCooldown: 1
+  _animator: {fileID: 0}
   MaxHeroStamina: 100
   CurrentHeroStamina: 50
   HeroStaminaRegenerate: 5
@@ -665,12 +687,10 @@ MonoBehaviour:
   CurrentHeroHealth: 50
   HeroHealthRegenerate: 1
   HeroMovementSpeed: 0
-  _coolDownLA: 0
-  _coolDownHA: 0
   LApool: {fileID: 6023173342740014939}
   HApool: {fileID: 6023173342740014936}
   _firePoint: {fileID: 6023173342454747560}
-  _heavyChargeTime: 0
+  _heavyShotChargeTime: 0
   _caltoprs: {fileID: 883260724214628200, guid: 1a5348d00f0987d48962a3f94a8f11f4, type: 3}
   BackOffUnlocked: 0
 --- !u!1 &6023173343209175575

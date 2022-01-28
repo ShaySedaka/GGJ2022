@@ -104,6 +104,7 @@ public class ZenaCombat : Hero
     {
         // Play Animation
         GameManager.Instance.Player.LockInput = true;
+        
         yield return new WaitForSeconds(_heavyAttackDelay);  //Animation Duration = delay      
 
         Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_heavyAttackPoint.position, _heavyAttackRange, enemyLayers);
