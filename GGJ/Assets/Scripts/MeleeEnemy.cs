@@ -31,6 +31,7 @@ public class MeleeEnemy : Enemy
 
     protected override void DyingUpdate()
     {
+        Debug.Log("I DIED");
         // death animation + destroy?
     }
 

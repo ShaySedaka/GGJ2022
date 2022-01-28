@@ -29,8 +29,9 @@ public class PiperCombat : Hero
     [SerializeField]
     private GameObject _caltoprs;
 
-    void Update()
+    private void Update()
     {
+        base.Update();
         if (Input.GetMouseButton(0))
         {
             LightAttack();

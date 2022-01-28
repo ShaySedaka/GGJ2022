@@ -25,10 +25,11 @@ public class PlayerGlobalStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RegenHero(Piper);
+        RegenHeroStamina(Zena);
+        RegenHeroStamina(Piper);
     }
 
-    private void RegenHero(Hero hero)
+    private void RegenHeroStamina(Hero hero)
     {
         if (hero.CurrentHeroStamina + hero.HeroStaminaRegenerate < hero.MaxHeroStamina)
         {
