@@ -1,8 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
 public class PiperCombat : Hero
 {
-
+    private float _lightAttackDelay = 0;
+    private float _heavyAttackDelay = 1.3f;
 
 
     [SerializeField]
@@ -32,11 +34,12 @@ public class PiperCombat : Hero
     [SerializeField]
     public bool BackOffUnlocked;
 
-    void Update()
+    protected override void Update()
     {
         if (!GameManager.Instance.Player.LockInput)
         {
-            if (Input.GetMouseButton(0))
+            base.Update();
+            if (Input.GetMouseButtonDown(0))
             {
                 LightAttack();
             }
@@ -94,26 +97,33 @@ public class PiperCombat : Hero
 
     public override void LightAttack()
     {
-        if (CurrentHeroStamina >= LightAttackCost)
+        if (CurrentHeroStamina >= LightAttackCost && _timeSinceLastLightAttack >= LightAttackCooldown)
         {
-            if (Time.time - _lastLA < _coolDownLA)
-            {
-                return;
-            }
-            _lastLA = Time.time;
-
-            GameObject bullet = LApool.GetPooledObjects();
-            if (bullet != null)
-            {
-                bullet.transform.position = _firePoint.position;
-                Bullet shot = bullet.GetComponent<Bullet>();
-                bullet.SetActive(true);
-                shot.direction = _firePoint.right;
-
-            }
             CurrentHeroStamina -= LightAttackCost;
+            _timeSinceLastLightAttack = 0;
+            StopMoving();
+            StartCoroutine(LightShot());
+        }   
+    }
+
+    private IEnumerator LightShot()
+    {
+        // Play Animation
+        GameManager.Instance.Player.LockInput = true;
+        yield return new WaitForSeconds(_lightAttackDelay);  //Animation Duration = delay      
+
+        GameObject bullet = LApool.GetPooledObjects();
+        if (bullet != null)
+        {
+            bullet.transform.position = _firePoint.position;
+            Bullet shot = bullet.GetComponent<Bullet>();
+            bullet.SetActive(true);
+            shot.direction = _firePoint.right * Mathf.Sign(GameManager.Instance.Player.gameObject.transform.localScale.x);
+
         }
 
+        Debug.Log("LightShot");
+        GameManager.Instance.Player.LockInput = false;
     }
 
     public override void Utility()

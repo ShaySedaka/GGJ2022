@@ -643,6 +643,42 @@ PrefabInstance:
       propertyPath: HeroStaminaRegenerate
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 6023173342074309296, guid: 2765b1b8e2858dc40bc8b8741e0f7b1a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023173342333933294, guid: 2765b1b8e2858dc40bc8b8741e0f7b1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023173342454747560, guid: 2765b1b8e2858dc40bc8b8741e0f7b1a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.80006
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023173342454747560, guid: 2765b1b8e2858dc40bc8b8741e0f7b1a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.10025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023173342454747560, guid: 2765b1b8e2858dc40bc8b8741e0f7b1a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.211
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023173342454747560, guid: 2765b1b8e2858dc40bc8b8741e0f7b1a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023173342740014912, guid: 2765b1b8e2858dc40bc8b8741e0f7b1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023173342740014943, guid: 2765b1b8e2858dc40bc8b8741e0f7b1a, type: 3}
+      propertyPath: _heavyChargeTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023173342740014943, guid: 2765b1b8e2858dc40bc8b8741e0f7b1a, type: 3}
+      propertyPath: _lightAttackStaminaCost
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6023173343209175572, guid: 2765b1b8e2858dc40bc8b8741e0f7b1a, type: 3}
       propertyPath: m_RootOrder
       value: 3
