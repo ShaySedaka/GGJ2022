@@ -4,7 +4,20 @@ using UnityEngine;
 
 public class ZenaCombat : Hero
 {
+    [SerializeField]
+    private Transform _attackPoint;
+    [SerializeField]
+    private float _attackRange = 0.5f;
 
+    public LayerMask enemyLayers;
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            LightAttack();
+        }
+    }
 
     public override void HeavyAttack()
     {
@@ -18,7 +31,17 @@ public class ZenaCombat : Hero
     {
         if (CurrentHeroStamina >= LightAttackCost)
         {
+            Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, enemyLayers);
+
+            if (enemiesHit.Length > 0)
+            {
+                foreach (var enemy in enemiesHit)
+                {
+                    enemy.gameObject.GetComponent<Enemy>().GetAttacked(_lightAttackDamage);
+                }
+            }
             
+            Debug.Log("Light");
         }
 
     }
@@ -37,9 +60,8 @@ public class ZenaCombat : Hero
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDrawGizmosSelected()
     {
-        
+        Gizmos.DrawWireSphere(_attackPoint.position, _attackRange);
     }
 }
