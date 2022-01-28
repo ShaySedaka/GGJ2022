@@ -4,18 +4,28 @@ using UnityEngine;
 
 public class PlayerGlobalStats : MonoBehaviour
 {
+    private Hero _currentHero;
+
     [SerializeField]
     private PiperCombat _piper;
+
+    [SerializeField]
+    private ZenaCombat _zena;
+
+    public Hero CurrentHero { get => _currentHero; set => _currentHero = value; }
+    public PiperCombat Piper { get => _piper; set => _piper = value; }
+    public ZenaCombat Zena { get => _zena; set => _zena = value; }
 
     // Start is called before the first frame update
     void Start()
     {
+        _currentHero = Zena;
     }
 
     // Update is called once per frame
     void Update()
     {
-        RegenHero(_piper);
+        RegenHero(Piper);
     }
 
     private void RegenHero(Hero hero)
@@ -28,7 +38,5 @@ public class PlayerGlobalStats : MonoBehaviour
         {
             hero.CurrentHeroStamina = hero.MaxHeroStamina;
         }
-
-        Debug.Log(hero.CurrentHeroStamina);
     }
 }

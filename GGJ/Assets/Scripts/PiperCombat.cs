@@ -61,46 +61,57 @@ public class PiperCombat : Hero
     }
     public override void HeavyAttack()
     {
-        if (Time.time - _lastHA < _coolDownHA)
+        if(CurrentHeroStamina >= HeavyAttackCost)
         {
-            return;
-        }
-        _lastHA = Time.time;
-        GameObject bullet = HApool.GetPooledObjects();
-        if (bullet != null)
-        {
-            bullet.transform.position = _firePoint.position;
-            Bullet shot = bullet.GetComponent<Bullet>();
-            bullet.SetActive(true);
-            shot.direction = _firePoint.right;
-        }
+            if (Time.time - _lastHA < _coolDownHA)
+            {
+                return;
+            }
+            _lastHA = Time.time;
+            GameObject bullet = HApool.GetPooledObjects();
+            if (bullet != null)
+            {
+                bullet.transform.position = _firePoint.position;
+                Bullet shot = bullet.GetComponent<Bullet>();
+                bullet.SetActive(true);
+                shot.direction = _firePoint.right;
+            }
+
+            CurrentHeroStamina -= HeavyAttackCost;
+        }        
     }
 
     public override void LightAttack()
     {
-
-        if (Time.time - _lastLA < _coolDownLA)
+        if (CurrentHeroStamina >= LightAttackCost)
         {
-            return;
-        }
-        _lastLA = Time.time;
+            if (Time.time - _lastLA < _coolDownLA)
+            {
+                return;
+            }
+            _lastLA = Time.time;
 
-        GameObject bullet = LApool.GetPooledObjects();
-        if (bullet != null)
-        {
-            bullet.transform.position = _firePoint.position;
-            Bullet shot = bullet.GetComponent<Bullet>();
-            bullet.SetActive(true);
-            shot.direction = _firePoint.right;
-            
-        }
+            GameObject bullet = LApool.GetPooledObjects();
+            if (bullet != null)
+            {
+                bullet.transform.position = _firePoint.position;
+                Bullet shot = bullet.GetComponent<Bullet>();
+                bullet.SetActive(true);
+                shot.direction = _firePoint.right;
 
+            }
+            CurrentHeroStamina -= LightAttackCost;
+        }
 
     }
 
     public override void Utility()
     {
-        Instantiate(_caltoprs, transform.position, new Quaternion());
+        if (CurrentHeroStamina >= UtilityCost)
+        {
+            Instantiate(_caltoprs, transform.position, new Quaternion());
+            CurrentHeroStamina -= UtilityCost;
+        }
     }
 
 

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class Hero : MonoBehaviour
 {
-    private float _lightAttackCost;
-    private float _heavyAttackCost;
-    private float _utilityAttackCost;
+    private float _lightAttackStaminaCost;
+    private float _heavyAttackStaminaCost;
+    private float _utilityStaminaCost;
 
 
     [SerializeField]
@@ -15,6 +15,10 @@ public abstract class Hero : MonoBehaviour
     public float CurrentHeroStamina;
     [SerializeField]
     public float HeroStaminaRegenerate;
+
+    public float LightAttackCost { get => _lightAttackStaminaCost; set => _lightAttackStaminaCost = value; }
+    public float HeavyAttackCost { get => _heavyAttackStaminaCost; set => _heavyAttackStaminaCost = value; }
+    public float UtilityCost { get => _utilityStaminaCost; set => _utilityStaminaCost = value; }
 
     public abstract void LightAttack();
     public abstract void HeavyAttack();
