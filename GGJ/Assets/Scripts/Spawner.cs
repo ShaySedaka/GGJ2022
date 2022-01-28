@@ -137,4 +137,18 @@ public class Spawner : MonoBehaviour
         Vector3 screen_point = Camera.main.WorldToScreenPoint(position);
         return (screen_point.x < 0 || screen_point.y < 0 || screen_point.x > Camera.main.pixelWidth || screen_point.y > Camera.main.pixelHeight);
     }
+
+    public int GetEnemiesCount()
+    {
+        // This is not optimized at all. preferably we can keep count of enemies + weights, and whenever an enemy dies he'll inform the spawner, to keep count.
+        int enemy_count = 0;
+        foreach (Enemy enemy in current_enemies)
+        {
+            if (enemy != null)
+            {
+                enemy_count += 1;
+            }
+        }
+        return enemy_count;
+    }
 }

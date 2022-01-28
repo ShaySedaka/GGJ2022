@@ -2,29 +2,32 @@ using UnityEngine;
 
 public class PiperCombat : Hero
 {
-    [SerializeField]
-    float CoolDownLA;
 
-    private float lastLA;
+
 
     [SerializeField]
-    float CoolDownHA;
+    private float _coolDownLA;
 
-    private float lastHA;
+    private float _lastLA;
+
+    [SerializeField]
+    private float _coolDownHA;
+
+    private float _lastHA;
 
     public ObjectPool LApool;
     public ObjectPool HApool;
 
     [SerializeField]
-    Transform FirePoint;
+    private Transform _firePoint;
 
     [SerializeField]
-    private float HeavyChargeTime;
+    private float _heavyChargeTime;
 
-    private float HeavyChargeTimer;
+    private float _heavyChargeTimer;
 
     [SerializeField]
-    GameObject Caltoprs;
+    private GameObject _caltoprs;
 
     void Update()
     {
@@ -35,18 +38,18 @@ public class PiperCombat : Hero
 
         if (Input.GetMouseButton(1))
         {
-            HeavyChargeTimer += Time.deltaTime;
+            _heavyChargeTimer += Time.deltaTime;
         }
         if (Input.GetMouseButtonUp(1))
         {
-            if (HeavyChargeTimer >= HeavyChargeTime)
+            if (_heavyChargeTimer >= _heavyChargeTime)
             {
                 HeavyAttack();
-                HeavyChargeTimer = 0;
+                _heavyChargeTimer = 0;
             }
             else
             {
-                HeavyChargeTimer = 0;
+                _heavyChargeTimer = 0;
             }
         }
 
@@ -58,46 +61,57 @@ public class PiperCombat : Hero
     }
     public override void HeavyAttack()
     {
-        if (Time.time - lastHA < CoolDownHA)
+        if(CurrentHeroStamina >= HeavyAttackCost)
         {
-            return;
-        }
-        lastHA = Time.time;
-        GameObject bullet = HApool.GetPooledObjects();
-        if (bullet != null)
-        {
-            bullet.transform.position = FirePoint.position;
-            Bullet shot = bullet.GetComponent<Bullet>();
-            bullet.SetActive(true);
-            shot.direction = FirePoint.right;
-        }
+            if (Time.time - _lastHA < _coolDownHA)
+            {
+                return;
+            }
+            _lastHA = Time.time;
+            GameObject bullet = HApool.GetPooledObjects();
+            if (bullet != null)
+            {
+                bullet.transform.position = _firePoint.position;
+                Bullet shot = bullet.GetComponent<Bullet>();
+                bullet.SetActive(true);
+                shot.direction = _firePoint.right;
+            }
+
+            CurrentHeroStamina -= HeavyAttackCost;
+        }        
     }
 
     public override void LightAttack()
     {
-
-        if (Time.time - lastLA < CoolDownLA)
+        if (CurrentHeroStamina >= LightAttackCost)
         {
-            return;
-        }
-        lastLA = Time.time;
+            if (Time.time - _lastLA < _coolDownLA)
+            {
+                return;
+            }
+            _lastLA = Time.time;
 
-        GameObject bullet = LApool.GetPooledObjects();
-        if (bullet != null)
-        {
-            bullet.transform.position = FirePoint.position;
-            Bullet shot = bullet.GetComponent<Bullet>();
-            bullet.SetActive(true);
-            shot.direction = FirePoint.right;
-            
-        }
+            GameObject bullet = LApool.GetPooledObjects();
+            if (bullet != null)
+            {
+                bullet.transform.position = _firePoint.position;
+                Bullet shot = bullet.GetComponent<Bullet>();
+                bullet.SetActive(true);
+                shot.direction = _firePoint.right;
 
+            }
+            CurrentHeroStamina -= LightAttackCost;
+        }
 
     }
 
     public override void Utility()
     {
-        Instantiate(Caltoprs, transform.position, new Quaternion());
+        if (CurrentHeroStamina >= UtilityCost)
+        {
+            Instantiate(_caltoprs, transform.position, new Quaternion());
+            CurrentHeroStamina -= UtilityCost;
+        }
     }
 
 
