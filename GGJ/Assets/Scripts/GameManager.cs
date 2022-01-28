@@ -9,6 +9,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private GameObject _gameOverCanvas;
     [SerializeField] private GameObject _gamePausedCanvas;
 
+    public LevelManager levelManager;
     public PlayerManager Player;
 
 
