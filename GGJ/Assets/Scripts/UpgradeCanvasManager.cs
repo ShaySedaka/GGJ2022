@@ -8,6 +8,8 @@ public class UpgradeCanvasManager : Singleton<UpgradeCanvasManager>
 {
     [SerializeField] private GameObject _upgradeCanvas;
 
+    [SerializeField] private TextMeshProUGUI _upgradesToMake;
+
     [SerializeField] private TextMeshProUGUI _slot1Title;
     [SerializeField] private TextMeshProUGUI _slot1Description;
 
@@ -21,8 +23,10 @@ public class UpgradeCanvasManager : Singleton<UpgradeCanvasManager>
     [SerializeField] private TextMeshProUGUI _slot4Description;
 
 
-    public void PromptUpgradeCanvas(Upgrade upgradeSlot1, Upgrade upgradeSlot2, Upgrade upgradeSlot3, Upgrade upgradeSlot4)
+    public void PromptUpgradeCanvas(Upgrade upgradeSlot1, Upgrade upgradeSlot2, Upgrade upgradeSlot3, Upgrade upgradeSlot4, int upgradesToMake)
     {
+        _upgradesToMake.text = upgradesToMake.ToString();
+
         _slot1Title.text = upgradeSlot1.upgrade_name;
         _slot1Description.text = upgradeSlot1.upgrade_description;
 
