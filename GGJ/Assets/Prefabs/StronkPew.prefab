@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 981415846775322783}
   - component: {fileID: 1581963849770635528}
   - component: {fileID: 1870171426764063520}
+  - component: {fileID: 5458396248475203039}
   - component: {fileID: 6355986794288585028}
   - component: {fileID: 7434439689719960571}
-  - component: {fileID: 5458396248475203039}
   m_Layer: 10
   m_Name: StronkPew
   m_TagString: Untagged
@@ -104,6 +104,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   DestroyOnImpact: 0
+--- !u!114 &5458396248475203039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4488984639471369949}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e5deb5a8491d1479fa050c9d900bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KnockBackStrenth: 15
 --- !u!50 &6355986794288585028
 Rigidbody2D:
   serializedVersion: 4
@@ -141,16 +154,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1.9999999}
   m_Direction: 0
---- !u!114 &5458396248475203039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4488984639471369949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3e5deb5a8491d1479fa050c9d900bb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  KnockBackStrenth: 15

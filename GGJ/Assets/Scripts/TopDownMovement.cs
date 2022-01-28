@@ -3,7 +3,7 @@ using UnityEngine;
 public class TopDownMovement : MonoBehaviour
 {
     [SerializeField]
-    private float MoveSpeed;
+    private float _baseMovementSpeed;
 
     private PlayerGlobalStats _playerStats;
 
@@ -11,27 +11,45 @@ public class TopDownMovement : MonoBehaviour
 
     Vector2 moveDirection;
 
+    public float MovementSpeed {
+        get
+        {
+            return(_baseMovementSpeed + GameManager.Instance.Player.PlayerGlobalStatsRef.CurrentHero.HeroMovementSpeed);
+        }
+        set => _baseMovementSpeed = value; }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         _playerStats = GetComponent<PlayerGlobalStats>();
+        GameManager.Instance.Player.LockInput = false;
     }
 
     void Update()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-        moveDirection = new Vector2(moveX, moveY).normalized;
-        Move();
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(!GameManager.Instance.Player.LockInput)
         {
-            SwitchCharacters();
-        }
+            float moveX = Input.GetAxisRaw("Horizontal");
+            if( (moveX > 0 && GameManager.Instance.Player.gameObject.transform.localScale.x < 0) ||
+                (moveX < 0 && GameManager.Instance.Player.gameObject.transform.localScale.x > 0) )
+            {
+                GameManager.Instance.Player.gameObject.transform.localScale = new Vector3(-GameManager.Instance.Player.gameObject.transform.localScale.x , 
+                GameManager.Instance.Player.gameObject.transform.localScale.y, GameManager.Instance.Player.gameObject.transform.localScale.z);
+            }
+            float moveY = Input.GetAxisRaw("Vertical");
+            moveDirection = new Vector2(moveX, moveY).normalized;
+            Move();
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                SwitchCharacters();
+            }
+        }        
     }
 
     private void Move()
     {
-        rb.velocity = moveDirection * MoveSpeed;
+        rb.velocity = moveDirection * MovementSpeed;
     }
 
     private void SwitchCharacters()

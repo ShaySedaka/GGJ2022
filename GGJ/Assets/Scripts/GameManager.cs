@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+
     [SerializeField] private GameObject _gameOverCanvas;
     [SerializeField] private GameObject _gamePausedCanvas;
+
+    public PlayerManager Player;
+
 
     private void Update()
     {

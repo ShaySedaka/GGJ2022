@@ -29,47 +29,57 @@ public class PiperCombat : Hero
     [SerializeField]
     private GameObject _caltoprs;
 
-    private void Update()
+    [SerializeField]
+    public bool BackOffUnlocked;
+
+    void Update()
     {
-        base.Update();
-        if (Input.GetMouseButton(0))
+        if (!GameManager.Instance.Player.LockInput)
         {
-            LightAttack();
-        }
-
-        if (Input.GetMouseButton(1))
-        {
-            _heavyChargeTimer += Time.deltaTime;
-        }
-        if (Input.GetMouseButtonUp(1))
-        {
-            if (_heavyChargeTimer >= _heavyChargeTime)
+            if (Input.GetMouseButton(0))
             {
-                HeavyAttack();
-                _heavyChargeTimer = 0;
+                LightAttack();
             }
-            else
-            {
-                _heavyChargeTimer = 0;
-            }
-        }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            Utility();
+            if (Input.GetMouseButton(1))
+            {
+                _heavyChargeTimer += Time.deltaTime;
+            }
+            if (Input.GetMouseButtonUp(1))
+            {
+                if (_heavyChargeTimer >= _heavyChargeTime)
+                {
+                    HeavyAttack();
+                    _heavyChargeTimer = 0;
+                }
+                else
+                {
+                    _heavyChargeTimer = 0;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                Utility();
+            }
         }
+            
 
     }
     public override void HeavyAttack()
     {
         if(CurrentHeroStamina >= HeavyAttackCost)
         {
+            
+            
             if (Time.time - _lastHA < _coolDownHA)
             {
                 return;
             }
             _lastHA = Time.time;
+            
             GameObject bullet = HApool.GetPooledObjects();
+            
             if (bullet != null)
             {
                 bullet.transform.position = _firePoint.position;
@@ -113,6 +123,21 @@ public class PiperCombat : Hero
             Instantiate(_caltoprs, transform.position, new Quaternion());
             CurrentHeroStamina -= UtilityCost;
         }
+    }
+
+    public void UpgradeArms(int damageIncrease)
+    {
+        _lightAttackDamage += damageIncrease;
+    }
+
+    public void UpgradePersistence(float regenIncrease)
+    {
+        HeroStaminaRegenerate += regenIncrease;
+    }
+
+    public void UpgradeSwiftness(float movementIncrease)
+    {
+        HeroMovementSpeed += movementIncrease;
     }
 
 

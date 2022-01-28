@@ -25,8 +25,12 @@ public class PlayerGlobalStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RegenHeroStamina(Zena);
-        RegenHeroStamina(Piper);
+        if(!GameManager.Instance.Player.LockRegen)
+        {
+            RegenHeroStamina(Zena);
+            RegenHeroStamina(Piper);
+        }
+        
     }
 
     private void RegenHeroStamina(Hero hero)
