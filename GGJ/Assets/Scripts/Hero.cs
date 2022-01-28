@@ -30,6 +30,9 @@ public abstract class Hero : MonoBehaviour
     [SerializeField]
     public float HeroHealthRegenerate;
 
+    [SerializeField]
+    public float HeroMovementSpeed;
+
     public float LightAttackCost { get => _lightAttackStaminaCost; set => _lightAttackStaminaCost = value; }
     public float HeavyAttackCost { get => _heavyAttackStaminaCost; set => _heavyAttackStaminaCost = value; }
     public float UtilityCost { get => _utilityStaminaCost; set => _utilityStaminaCost = value; }

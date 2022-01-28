@@ -3,13 +3,20 @@ using UnityEngine;
 public class TopDownMovement : MonoBehaviour
 {
     [SerializeField]
-    private float MoveSpeed;
+    private float _baseMovementSpeed;
 
     private PlayerGlobalStats _playerStats;
 
     private Rigidbody2D rb;
 
     Vector2 moveDirection;
+
+    public float MovementSpeed {
+        get
+        {
+            return(_baseMovementSpeed + GameManager.Instance.Player.PlayerGlobalStatsRef.CurrentHero.HeroMovementSpeed);
+        }
+        set => _baseMovementSpeed = value; }
 
     void Start()
     {
@@ -31,7 +38,7 @@ public class TopDownMovement : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity = moveDirection * MoveSpeed;
+        rb.velocity = moveDirection * MovementSpeed;
     }
 
     private void SwitchCharacters()
