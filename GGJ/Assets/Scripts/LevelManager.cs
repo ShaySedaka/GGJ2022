@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
     public Spawner spawner;
-    public UpgradeManager upgrade_manager;
+    //public UpgradeManager upgrade_manager;
     private LevelState state;
     public int wave_number { get; private set; }
     private float state_endtime;  // Not used for UpgradeScreen. For Active it ends after the time is up, and all enemies are dead.
