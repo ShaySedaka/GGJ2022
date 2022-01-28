@@ -12,7 +12,7 @@ public class GameManager : Singleton<GameManager>
     public PlayerManager Player;
 
 
-    private void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -23,6 +23,7 @@ public class GameManager : Singleton<GameManager>
 
     public void GameOverScreen()
     {
+
         _gameOverCanvas.SetActive(true);
         StopGame();
     }
@@ -30,13 +31,14 @@ public class GameManager : Singleton<GameManager>
     private void StopGame()
     {
         Time.timeScale = 0;
-
+        Player.FreezePlayer();
     }
 
     private void ContinueGame()
     {
         _gamePausedCanvas.SetActive(false);
         Time.timeScale = 1;
+        Player.UnfreezePlayer();
     }
 
     private void RestartGame()
