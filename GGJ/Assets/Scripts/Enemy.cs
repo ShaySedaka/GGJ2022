@@ -57,10 +57,10 @@ public abstract class Enemy : MonoBehaviour
         switch(state)
         {
             case EnemyState.Walking:
-                if((GameManager.Instance.Player.transform.position - transform.position).magnitude < stats.Range)
-                {
-                    state = EnemyState.Attacking;
-                }
+                //if((GameManager.Instance.Player.transform.position - transform.position).magnitude < stats.Range)
+                //{
+                //    state = EnemyState.Attacking;
+                //}
                 // Nav Mesh Here????
                 break;
             case EnemyState.Attacking:
