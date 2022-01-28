@@ -22,18 +22,22 @@ public class TopDownMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         _playerStats = GetComponent<PlayerGlobalStats>();
+        GameManager.Instance.Player.LockInput = false;
     }
 
     void Update()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-        moveDirection = new Vector2(moveX, moveY).normalized;
-        Move();
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(!GameManager.Instance.Player.LockInput)
         {
-            SwitchCharacters();
-        }
+            float moveX = Input.GetAxisRaw("Horizontal");
+            float moveY = Input.GetAxisRaw("Vertical");
+            moveDirection = new Vector2(moveX, moveY).normalized;
+            Move();
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                SwitchCharacters();
+            }
+        }        
     }
 
     private void Move()

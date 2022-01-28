@@ -32,38 +32,44 @@ public class PiperCombat : Hero
     private void Update()
     {
         base.Update();
-        if (Input.GetMouseButton(0))
+        if (!GameManager.Instance.Player.LockInput)
         {
-            LightAttack();
-        }
-
-        if (Input.GetMouseButton(1))
-        {
-            _heavyChargeTimer += Time.deltaTime;
-        }
-        if (Input.GetMouseButtonUp(1))
-        {
-            if (_heavyChargeTimer >= _heavyChargeTime)
+            if (Input.GetMouseButton(0))
             {
-                HeavyAttack();
-                _heavyChargeTimer = 0;
+                LightAttack();
             }
-            else
-            {
-                _heavyChargeTimer = 0;
-            }
-        }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            Utility();
+            if (Input.GetMouseButton(1))
+            {
+                _heavyChargeTimer += Time.deltaTime;
+            }
+            if (Input.GetMouseButtonUp(1))
+            {
+                if (_heavyChargeTimer >= _heavyChargeTime)
+                {
+                    HeavyAttack();
+                    _heavyChargeTimer = 0;
+                }
+                else
+                {
+                    _heavyChargeTimer = 0;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                Utility();
+            }
         }
+            
 
     }
     public override void HeavyAttack()
     {
         if(CurrentHeroStamina >= HeavyAttackCost)
         {
+            
+            
             if (Time.time - _lastHA < _coolDownHA)
             {
                 return;

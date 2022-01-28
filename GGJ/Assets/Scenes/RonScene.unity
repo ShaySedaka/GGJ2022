@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2d7dbb079c5654099601f2dc349675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 40
+  _baseMovementSpeed: 20
 --- !u!114 &162000892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +284,7 @@ MonoBehaviour:
   PlayerGlobalStatsRef: {fileID: 162000892}
   ZenaRef: {fileID: 1304649569}
   PiperRef: {fileID: 1705816753}
+  LockInput: 0
 --- !u!1 &386806867
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +657,7 @@ MonoBehaviour:
   MaxHeroHealth: 100
   CurrentHeroHealth: 20
   HeroHealthRegenerate: 5
+  HeroMovementSpeed: 0
   _rigidBody: {fileID: 162000893}
   _attackPoint: {fileID: 1126367672}
   _attackRange: 5
@@ -799,6 +801,7 @@ MonoBehaviour:
   MaxHeroHealth: 100
   CurrentHeroHealth: 50
   HeroHealthRegenerate: 1
+  HeroMovementSpeed: 0
   _coolDownLA: 0
   _coolDownHA: 0
   LApool: {fileID: 1705816757}

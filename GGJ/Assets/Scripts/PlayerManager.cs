@@ -13,6 +13,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     public PiperCombat PiperRef;
 
+    public bool LockInput = false;
+
 
 
 }

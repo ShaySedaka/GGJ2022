@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,15 +25,20 @@ public class ZenaCombat : Hero
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!GameManager.Instance.Player.LockInput)
         {
-            LightAttack();
-        }
+            if (Input.GetMouseButtonDown(0))
+            {
+                LightAttack();
+            }
 
-        if( (Input.GetKeyDown(KeyCode.LeftShift)) )
-        {
-            Utility();
+            if ((Input.GetKeyDown(KeyCode.LeftShift)))
+            {
+                Utility();
+            }
         }
+        
+            
     }
 
     public override void HeavyAttack()
@@ -47,6 +53,7 @@ public class ZenaCombat : Hero
     {
         if (CurrentHeroStamina >= LightAttackCost)
         {
+            GameManager.Instance.Player.LockInput = true;
             Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, enemyLayers);
 
             if (enemiesHit.Length > 0)
@@ -58,6 +65,7 @@ public class ZenaCombat : Hero
             }
             
             Debug.Log("Light");
+            GameManager.Instance.Player.LockInput = false;
         }
 
     }
@@ -79,7 +87,8 @@ public class ZenaCombat : Hero
         float elapsedTime = 0;
         while (elapsedTime < _dashTime)
         {
-            _rigidBody.velocity = Vector2.right * _dashSpeed;
+            float direction = Math.Sign(GameManager.Instance.Player.gameObject.transform.localScale.x);
+            _rigidBody.velocity = Vector2.right * _dashSpeed * direction;
             elapsedTime += Time.deltaTime;
             yield return null;
         }
