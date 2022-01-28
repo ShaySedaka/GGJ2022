@@ -14,26 +14,49 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            _gamePausedCanvas.SetActive(true);
+            StopGame();
+        }
+    }
+
+    public void GameOverScreen()
+    {
+        _gameOverCanvas.SetActive(true);
+        StopGame();
+    }
+
+    private void StopGame()
+    {
+        Time.timeScale = 0;
+
+    }
+
+    private void ContinueGame()
+    {
+        _gamePausedCanvas.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    private void RestartGame()
+    {
+        // Load scene.
     }
 
     public void OnContinue()
     {
-
+        ContinueGame();
     }
 
     public void OnRestart()
     {
-
+        RestartGame();
     }
 
     public void OnQuit()
     {
-
+        Application.Quit();
     }
 
-    internal void GameOverScreen()
-    {
-        
-    }
 }
