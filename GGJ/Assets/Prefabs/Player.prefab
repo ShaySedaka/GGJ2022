@@ -213,8 +213,10 @@ MonoBehaviour:
   HeroHealthRegenerate: 5
   HeroMovementSpeed: 0
   _rigidBody: {fileID: 6023173343209175571}
-  _attackPoint: {fileID: 6023173342227420246}
-  _attackRange: 5
+  _lightAttackPoint: {fileID: 6023173342227420246}
+  _heavyAttackPoint: {fileID: 6585740785642183213}
+  _lightAttackRange: 0.5
+  _heavyAttackRange: 0.5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256

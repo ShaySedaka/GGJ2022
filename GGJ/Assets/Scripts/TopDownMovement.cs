@@ -7,7 +7,7 @@ public class TopDownMovement : MonoBehaviour
 
     private PlayerGlobalStats _playerStats;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D _rigidBody;
 
     Vector2 moveDirection;
 
@@ -20,9 +20,11 @@ public class TopDownMovement : MonoBehaviour
         set => _baseMovementSpeed = value; 
     }
 
+    public Rigidbody2D RigidBody { get => _rigidBody; set => _rigidBody = value; }
+
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        RigidBody = GetComponent<Rigidbody2D>();
         _playerStats = GetComponent<PlayerGlobalStats>();
         GameManager.Instance.Player.LockInput = false;
     }
@@ -51,7 +53,7 @@ public class TopDownMovement : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity = moveDirection * MovementSpeed;
+        RigidBody.velocity = moveDirection * MovementSpeed;
     }
 
     private void SwitchCharacters()

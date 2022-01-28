@@ -25,8 +25,7 @@ public class ZenaCombat : Hero
     [SerializeField]
     private float _dashTime;
     private float _startDashTime;
-    private int direction;
-    private bool _isDashing = false;
+    private int _direction;
 
     private float _lightAttackDelay = 0.7f;
     private float _heavyAttackDelay = 1.3f;
@@ -59,12 +58,44 @@ public class ZenaCombat : Hero
             
     }
 
+    public override void LightAttack()
+    {
+        if (CurrentHeroStamina >= LightAttackCost && _timeSinceLastLightAttack >= LightAttackCooldown)
+        {
+            CurrentHeroStamina -= LightAttackCost;
+            _timeSinceLastLightAttack = 0;
+            StopMoving();
+            StartCoroutine(LightSwing());
+        }
+
+    }
+
+    public IEnumerator LightSwing()
+    {
+        // Play Animation
+        GameManager.Instance.Player.LockInput = true;
+        yield return new WaitForSeconds(_lightAttackDelay);  //Animation Duration = delay      
+
+        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_lightAttackPoint.position, _lightAttackRange, enemyLayers);
+
+        if (enemiesHit.Length > 0)
+        {
+            foreach (var enemy in enemiesHit)
+            {
+                enemy.gameObject.GetComponent<Enemy>().GetAttacked(_lightAttackDamage);
+            }
+        }
+        Debug.Log("LightSwing");
+        GameManager.Instance.Player.LockInput = false;
+    }
+
     public override void HeavyAttack()
     {
         if (CurrentHeroStamina >= HeavyAttackCost && _timeSinceLastHeavyAttack >= HeavyAttackCooldown)
         {
             CurrentHeroStamina -= HeavyAttackCost;
             _timeSinceLastHeavyAttack = 0;
+            StopMoving();
             StartCoroutine(HeavySwing());
         }
     }
@@ -88,42 +119,13 @@ public class ZenaCombat : Hero
         GameManager.Instance.Player.LockInput = false;
     }
 
-    public override void LightAttack()
-    {
-        if (CurrentHeroStamina >= LightAttackCost && _timeSinceLastLightAttack >= LightAttackCooldown)
-        {
-            CurrentHeroStamina -= LightAttackCost;
-            _timeSinceLastLightAttack = 0;
-            StartCoroutine(LightSwing());
-        }
-
-    }
-
-    public IEnumerator LightSwing()
-    {
-        // Play Animation
-        GameManager.Instance.Player.LockInput = true; 
-        yield return new WaitForSeconds(_lightAttackDelay);  //Animation Duration = delay      
-        
-        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_lightAttackPoint.position, _lightAttackRange, enemyLayers);
-
-        if (enemiesHit.Length > 0)
-        {
-            foreach (var enemy in enemiesHit)
-            {
-                enemy.gameObject.GetComponent<Enemy>().GetAttacked(_lightAttackDamage);
-            }
-        }
-        Debug.Log("LightSwing");
-        GameManager.Instance.Player.LockInput = false;        
-    }
-
     public override void Utility()
     {
         if (CurrentHeroStamina >= UtilityCost && _timeSinceLastUtility >= UtilityCooldown)
         {
             CurrentHeroStamina -= UtilityCost;
             _timeSinceLastUtility = 0;
+            StopMoving();
             StartCoroutine(Dash());
         }
     }
@@ -134,8 +136,8 @@ public class ZenaCombat : Hero
         float elapsedTime = 0;
         while (elapsedTime < _dashTime)
         {
-            float direction = Math.Sign(GameManager.Instance.Player.gameObject.transform.localScale.x);
-            _rigidBody.velocity = Vector2.right * _dashSpeed * direction;
+            _direction = Math.Sign(GameManager.Instance.Player.gameObject.transform.localScale.x);
+            _rigidBody.velocity = Vector2.right * _dashSpeed * _direction;
             elapsedTime += Time.deltaTime;
             yield return null;
         }

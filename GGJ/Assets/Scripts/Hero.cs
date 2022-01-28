@@ -136,4 +136,9 @@ public abstract class Hero : MonoBehaviour
         }
     }
 
+    protected void StopMoving()
+    {
+        GameManager.Instance.Player.ControllerRef.RigidBody.velocity = Vector2.zero;
+    }
+
 }
