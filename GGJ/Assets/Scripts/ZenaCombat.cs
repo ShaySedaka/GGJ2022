@@ -54,8 +54,6 @@ public class ZenaCombat : Hero
                 Utility();
             }
         }
-        
-            
     }
 
     public override void LightAttack()

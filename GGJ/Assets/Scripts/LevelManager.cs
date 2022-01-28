@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour
     private LevelState state;
     public int wave_number { get; private set; }
     private float state_endtime;  // Not used for UpgradeScreen. For Active it ends after the time is up, and all enemies are dead.
-    private float wave_length = 120f;  // This can be changed, in ActivateWave, if we need different wave lengths.
+    private float wave_length = 20f;  // This can be changed, in ActivateWave, if we need different wave lengths.
 
     private const float wave_start_animation_length = 3f;
     private const float wave_completed_animation_length = 1.5f;
@@ -40,9 +40,10 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         wave_number = 0;
+        Debug.Log("WaveStart_root");
         WaveStart();
     }
-
+        
     void Update()
     {
         switch(state)
@@ -50,26 +51,30 @@ public class LevelManager : MonoBehaviour
             case LevelState.WaveStart:
                 if (Time.time > state_endtime)
                 {
+                    Debug.Log("ActivateWave");
                     ActivateWave();
                 }
                 break;
             case LevelState.WaveActive:
                 if(ShouldEndWave())
                 {
+                    Debug.Log("CompletedWave");
                     WaveCompleted();
                 }
                 break;
             case LevelState.WaveCompleted:
                 if (Time.time > state_endtime)
                 {
+                    Debug.Log("ActivateUpgradeScreen");
                     ActivateUpgradeScreen();
                 }
                 break;
             case LevelState.UpgradeScreen:
-              /*  if(!upgrade_manager.is_upgrading)
+                if(!upgrade_manager.is_upgrading)
                 {
+                    Debug.Log("WaveStart");
                     WaveStart();
-                }*/
+                }
                 break;
         }
     }
@@ -85,7 +90,7 @@ public class LevelManager : MonoBehaviour
 
     private void ActivateWave()
     {
-        state = LevelState.WaveStart;
+        state = LevelState.WaveActive;
         state_endtime = Time.time + wave_length;
         StartSpawner();
 
@@ -104,7 +109,12 @@ public class LevelManager : MonoBehaviour
         if (Time.time < state_endtime)
             return false;
 
-        if(spawner.GetEnemiesCount() > 0)
+        if (spawner.spawning)
+        {
+            // Probably should be called in the outer func. YOLO
+            spawner.StopSpawning();
+        }
+        if (spawner.GetEnemiesCount() > 0)
             return false;
 
         return true;
@@ -113,7 +123,7 @@ public class LevelManager : MonoBehaviour
     private void ActivateUpgradeScreen()
     {
         state = LevelState.UpgradeScreen;
-        //upgrade_manager.Upgrade(GameManager.Instance.player.CalculateLevelUps());
+        upgrade_manager.Upgrade(1); // TODO: right now only level up once. maybe GameManager.Instance.Player.CalculateLevelUps());
     }
 
     private void StartSpawner()
@@ -122,7 +132,8 @@ public class LevelManager : MonoBehaviour
         int enemy_weight = 50;
         List<EnemyGroup> enemy_groups = new List<EnemyGroup>();
         enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Brute }));
-        enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Parasite, EnemyType.Parasite, EnemyType.Parasite, EnemyType.Parasite }));
+        enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Ranger, EnemyType.Ranger }));
+        enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Psycho, EnemyType.Brute }));
         spawner.SetLevel(enemy_groups, enemy_weight);
         spawner.StartSpawning();
     }

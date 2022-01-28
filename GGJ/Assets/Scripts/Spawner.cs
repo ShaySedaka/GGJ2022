@@ -7,15 +7,20 @@ public class Spawner : MonoBehaviour
     // List here new enemies.
     public Enemy BrutePrefab;
     public Enemy ParasitePrefab;
+    public Enemy RangerPrefab;
+    public Enemy DronePrefab;
+    public Enemy PsychoPrefab;
+    public Enemy BigMamaPrefab;
 
     private List<EnemyGroup> enemy_groups_to_spawn;
     private List<Enemy> current_enemies = new List<Enemy>();
     public List<Vector3> spawn_positions;
     private float spawn_duration = 2;
     private float last_spawn_time = - 1000000; // lazy solution FTW
-    private bool spawning = false;
+    public bool spawning = false;
     public int max_enemies_weight;
-    
+
+
     void Start()
     {
     }
@@ -45,7 +50,6 @@ public class Spawner : MonoBehaviour
             Debug.LogError("Can't stop spawning! not spawning.");
         }
         spawning = false;
-        // Delete all enemies here?
     }
 
     public void SetLevel(List<EnemyGroup> _enemy_groups, int _max_enemies_weight)
@@ -55,7 +59,6 @@ public class Spawner : MonoBehaviour
         {
             enemy_groups_to_spawn.Add(enemy_group);
         }
-        Debug.Log(enemy_groups_to_spawn.Count);
         max_enemies_weight = _max_enemies_weight;
     }
 
@@ -66,7 +69,6 @@ public class Spawner : MonoBehaviour
 
         if (Time.time - last_spawn_time < spawn_duration)
         {
-            Debug.Log(string.Format("Time not satisfied: {0}, {1}", Time.time, last_spawn_time));
             return false;
         }
         
@@ -103,10 +105,22 @@ public class Spawner : MonoBehaviour
             {
                 // List here new enemies.
                 case EnemyType.Brute:
-                    enemy = Instantiate(BrutePrefab, position, Quaternion.identity);
+                    enemy = Instantiate(BrutePrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)), Quaternion.identity);
                     break;
                 case EnemyType.Parasite:
-                    enemy = Instantiate(ParasitePrefab, position, Quaternion.identity);
+                    enemy = Instantiate(ParasitePrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)), Quaternion.identity);
+                    break;
+                case EnemyType.Ranger:
+                    enemy = Instantiate(RangerPrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)), Quaternion.identity);
+                    break;
+                case EnemyType.Drone:
+                    enemy = Instantiate(DronePrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)), Quaternion.identity);
+                    break;
+                case EnemyType.Psycho:
+                    enemy = Instantiate(PsychoPrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)), Quaternion.identity);
+                    break;
+                case EnemyType.BigMama:
+                    enemy = Instantiate(BigMamaPrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)), Quaternion.identity);
                     break;
                 default:
                     Debug.LogError(string.Format("Missing prefab for enemy_type {0}", enemy_type));
@@ -118,17 +132,22 @@ public class Spawner : MonoBehaviour
 
     private Vector3 GetPosition()
     {
-        int random_first_index = Random.Range(0, spawn_positions.Count);
+        List<Vector3> valid_spawn_positions = new List<Vector3>();
         for(int i = 0; i < spawn_positions.Count; i++)
         {
-            Vector3 position = spawn_positions[(random_first_index + i) % spawn_positions.Count];
+            Vector3 position = spawn_positions[i];
             if (IsPositionValid(position))
             {
-                return position;
+                valid_spawn_positions.Add(position);
             }
         }
-        Debug.LogError("No valid position to spawn");
-        return Vector3.zero;
+        if(valid_spawn_positions.Count == 0)
+        {
+            Debug.LogError("No valid position to spawn");
+            return Vector3.zero;
+        }
+
+        return valid_spawn_positions[Random.Range(0, valid_spawn_positions.Count)];
     }
 
     private bool IsPositionValid(Vector3 position)

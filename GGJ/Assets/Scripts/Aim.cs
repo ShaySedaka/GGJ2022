@@ -1,13 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Aim : MonoBehaviour
 {
+    public bool AimToMouse;
+    Vector3 difference;
     private void FixedUpdate()
     {
-        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-
+        if (AimToMouse)
+        {
+            difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        }
+        else
+        {
+            difference = GameManager.Instance.Player.transform.position - transform.position;
+        }
         difference.Normalize();
 
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;

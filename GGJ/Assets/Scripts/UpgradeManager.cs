@@ -11,7 +11,7 @@ public class UpgradeManager : MonoBehaviour
     public List<Upgrade> zena_upgrades;
     public List<Upgrade> piper_upgrades;
     private Upgrade[] upgradeSlots = new Upgrade[4];
-    public uint upgradesToMake;
+    public int upgradesToMake;
 
     private bool advanced_upgrade_created = false;
     private uint advanced_upgrade_minlevel = 5;
@@ -21,7 +21,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] PiperCombat piper;
 
     
-    void Start()
+    void Awake()
     {
         is_upgrading = false;
         upgradesToMake = 0;
@@ -30,8 +30,20 @@ public class UpgradeManager : MonoBehaviour
         CreateBaseUpgrades();
     }
 
+    public void Upgrade(int upgrade_count)
+    {
+        is_upgrading = true;
+        upgradesToMake = upgrade_count;
+        if(upgradesToMake > 0)
+        {
+            OfferUpgrades();
+        }
+    }
+
     public void CreateBaseUpgrades()
     {
+        zena_upgrades = new List<Upgrade>();
+        piper_upgrades = new List<Upgrade>();
         zena_upgrades.Add(new StrengthUpgrade(zena));
         zena_upgrades.Add(new VitalityUpgrade(zena));
         zena_upgrades.Add(new AgilityUpgrade(zena));
@@ -65,11 +77,11 @@ public class UpgradeManager : MonoBehaviour
             indexPiper2 = random.Next(piper_upgrades.Count);
         }
         while (indexPiper2 == indexPiper1);
-        Upgrade upgradeZena1 = zena_upgrades[indexZena1];
-        Upgrade upgradeZena2 = zena_upgrades[indexZena2];
-        Upgrade upgradePiper1 = piper_upgrades[indexPiper1];
-        Upgrade upgradePiper2 = piper_upgrades[indexPiper2];
-        UpgradeCanvasManager.Instance.PromptUpgradeCanvas(upgradeZena1, upgradeZena2, upgradePiper1, upgradePiper2, upgradesToMake);
+        upgradeSlots[0] = zena_upgrades[indexZena1];
+        upgradeSlots[1] = zena_upgrades[indexZena2];
+        upgradeSlots[2] = piper_upgrades[indexPiper1];
+        upgradeSlots[3] = piper_upgrades[indexPiper2];
+        UpgradeCanvasManager.Instance.PromptUpgradeCanvas(upgradeSlots[0], upgradeSlots[1], upgradeSlots[2], upgradeSlots[3], upgradesToMake);
     }
 
     public void OnUpgradePress(int upgrade_slot)
