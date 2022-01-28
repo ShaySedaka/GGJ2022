@@ -4,12 +4,13 @@ using UnityEngine;
 
 public abstract class Upgrade
 {
-    public string upgrade_text;
+    public string upgrade_name;
+    public string upgrade_description;
     public Sprite upgrade_icon;
     public Color upgrade_color;
+    public Color upgrade_color_dark;
     public Hero upgrade_character;
-    void DoUpgrade()
-    {
-        //do upgrade on the hero.
-    }
+
+    public bool is_unique;
+    public abstract void DoUpgrade();
 }
