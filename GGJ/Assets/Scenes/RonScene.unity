@@ -166,6 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ccc85dc1ffcb44592a8fe5f2317d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameOverCanvas: {fileID: 0}
+  _gamePausedCanvas: {fileID: 0}
   Player: {fileID: 162000895}
 --- !u!1 &162000889
 GameObject:
@@ -285,6 +287,7 @@ MonoBehaviour:
   ZenaRef: {fileID: 1304649569}
   PiperRef: {fileID: 1705816753}
   LockInput: 0
+  LockRegen: 0
 --- !u!1 &386806867
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,7 +814,7 @@ MonoBehaviour:
   HApool: {fileID: 1705816758}
   _firePoint: {fileID: 1991001158}
   _heavyChargeTime: 0
-  _caltoprs: {fileID: 0}
+  _caltoprs: {fileID: 883260724214628200, guid: 1a5348d00f0987d48962a3f94a8f11f4, type: 3}
   BackOffUnlocked: 0
 --- !u!114 &1705816757
 MonoBehaviour:

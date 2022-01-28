@@ -153,7 +153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &162000890
 Transform:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2d7dbb079c5654099601f2dc349675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 40
+  _baseMovementSpeed: 0
 --- !u!114 &162000892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5976,17 +5976,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310612aca73139147b9951a2f717e4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lightAttackStaminaCost: 0
+  _heavyAttackStaminaCost: 0
+  _utilityStaminaCost: 0
+  _lightAttackDamage: 0
+  _heavyAttackDamage: 0
+  _attackSpeedBonus: 0
   MaxHeroStamina: 100
   CurrentHeroStamina: 50
   HeroStaminaRegenerate: 5
   MaxHeroHealth: 0
   CurrentHeroHealth: 0
   HeroHealthRegenerate: 0
+  HeroMovementSpeed: 0
+  _rigidBody: {fileID: 0}
   _attackPoint: {fileID: 0}
   _attackRange: 0.5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 0
+  _dashSpeed: 0
+  _dashTime: 0
+  _attackSpeedBonusForTesting: 0
 --- !u!61 &1304649570
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6236,12 +6247,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed8371412129104b905fa9fc468dfd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lightAttackStaminaCost: 0
+  _heavyAttackStaminaCost: 0
+  _utilityStaminaCost: 0
+  _lightAttackDamage: 0
+  _heavyAttackDamage: 0
+  _attackSpeedBonus: 0
   MaxHeroStamina: 0
   CurrentHeroStamina: 0
   HeroStaminaRegenerate: 0
   MaxHeroHealth: 0
   CurrentHeroHealth: 0
   HeroHealthRegenerate: 0
+  HeroMovementSpeed: 0
   _coolDownLA: 0.2
   _coolDownHA: 1
   LApool: {fileID: 1705816757}
@@ -6249,6 +6267,7 @@ MonoBehaviour:
   _firePoint: {fileID: 1991001158}
   _heavyChargeTime: 1
   _caltoprs: {fileID: 0}
+  BackOffUnlocked: 0
 --- !u!114 &1705816757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6534,6 +6553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _upgradeCanvas: {fileID: 1490720673}
+  _upgradesToMake: {fileID: 0}
   _slot1Title: {fileID: 1149034664}
   _slot1Description: {fileID: 1523757103}
   _slot2Title: {fileID: 513584053}
@@ -6676,7 +6696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4758069145977144058, guid: ea292b4bcc0d61844a89e6463a613ba7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6266393462148369041, guid: ea292b4bcc0d61844a89e6463a613ba7, type: 3}
       propertyPath: m_SortingOrder
@@ -6955,19 +6975,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1110801070405037548, guid: fb0316f497c1abb4ca02ae6e918f0f35, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1110801070405037548, guid: fb0316f497c1abb4ca02ae6e918f0f35, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2857918005393571404, guid: fb0316f497c1abb4ca02ae6e918f0f35, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2857918005393571404, guid: fb0316f497c1abb4ca02ae6e918f0f35, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3668043107124076004, guid: fb0316f497c1abb4ca02ae6e918f0f35, type: 3}
       propertyPath: m_Name
@@ -6975,23 +6995,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3668043107124076004, guid: fb0316f497c1abb4ca02ae6e918f0f35, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762052384025477254, guid: fb0316f497c1abb4ca02ae6e918f0f35, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4762052384025477254, guid: fb0316f497c1abb4ca02ae6e918f0f35, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4762052384025477254, guid: fb0316f497c1abb4ca02ae6e918f0f35, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5094379293744274565, guid: fb0316f497c1abb4ca02ae6e918f0f35, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5094379293744274565, guid: fb0316f497c1abb4ca02ae6e918f0f35, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5757522704147588226, guid: fb0316f497c1abb4ca02ae6e918f0f35, type: 3}
       propertyPath: m_Pivot.x
