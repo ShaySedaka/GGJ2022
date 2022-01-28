@@ -3,36 +3,60 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    public static GameManager Instance { get; private set; }
+
+    [SerializeField] private GameObject _gameOverCanvas;
+    [SerializeField] private GameObject _gamePausedCanvas;
+
     public PlayerManager Player;
 
 
-    private void Awake()
+    private void Update()
     {
-        if (Instance != null && Instance != this)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            Instance = this;
+            _gamePausedCanvas.SetActive(true);
+            StopGame();
         }
     }
 
-    void Start()
+    public void GameOverScreen()
     {
-        
+        _gameOverCanvas.SetActive(true);
+        StopGame();
     }
 
-    void Update()
+    private void StopGame()
     {
-        
+        Time.timeScale = 0;
+
     }
 
-    internal void GameOverScreen()
+    private void ContinueGame()
     {
-        throw new NotImplementedException();
+        _gamePausedCanvas.SetActive(false);
+        Time.timeScale = 1;
     }
+
+    private void RestartGame()
+    {
+        // Load scene.
+    }
+
+    public void OnContinue()
+    {
+        ContinueGame();
+    }
+
+    public void OnRestart()
+    {
+        RestartGame();
+    }
+
+    public void OnQuit()
+    {
+        Application.Quit();
+    }
+
 }
