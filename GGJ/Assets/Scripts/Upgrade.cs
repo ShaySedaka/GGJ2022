@@ -35,7 +35,7 @@ public class StrengthUpgrade : Upgrade
     }
     public void DoUpgrade()
     {
-
+        // Update Player.
     }
 }
 
@@ -51,7 +51,7 @@ public class VitalityUpgrade : Upgrade
     }
     public void DoUpgrade()
     {
-
+        // Update Player.
     }
 }
 
@@ -67,7 +67,7 @@ public class AgilityUpgrade : Upgrade
     }
     public void DoUpgrade()
     {
-
+        // Update Player.
     }
 }
 
@@ -83,7 +83,7 @@ public class StunUpgrade : Upgrade
     }
     public void DoUpgrade()
     {
-
+        // Update Player.
     }
 }
 
@@ -99,7 +99,7 @@ public class SlowUpgrade : Upgrade
     }
     public void DoUpgrade()
     {
-
+        // Update Player.
     }
 }
 
@@ -115,7 +115,7 @@ public class ArmsUpgrade : Upgrade
     }
     public void DoUpgrade()
     {
-
+        // Update Player.
     }
 }
 
@@ -131,7 +131,7 @@ public class PersistenceUpgrade : Upgrade
     }
     public void DoUpgrade()
     {
-
+        // Update Player.
     }
 }
 
@@ -147,7 +147,7 @@ public class SwiftnessUpgrade : Upgrade
     }
     public void DoUpgrade()
     {
-
+        // Update Player.
     }
 }
 
@@ -163,7 +163,7 @@ public class BleedUpgrade : Upgrade
     }
     public void DoUpgrade()
     {
-
+        // Update Player.
     }
 }
 
@@ -179,6 +179,6 @@ public class KnockbackUpgrade : Upgrade
     }
     public void DoUpgrade()
     {
-
+        // Update Player.
     }
 }

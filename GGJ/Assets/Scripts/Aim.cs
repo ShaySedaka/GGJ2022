@@ -3,7 +3,6 @@ using UnityEngine;
 public class Aim : MonoBehaviour
 {
     public bool AimToMouse;
-    public Transform Target;
     Vector3 difference;
     private void FixedUpdate()
     {
@@ -13,7 +12,7 @@ public class Aim : MonoBehaviour
         }
         else
         {
-            difference = Target.position - transform.position;
+            difference = GameManager.Instance.Player.transform.position - transform.position;
         }
         difference.Normalize();
 

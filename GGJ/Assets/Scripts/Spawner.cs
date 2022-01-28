@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
     public List<Vector3> spawn_positions;
     private float spawn_duration = 2;
     private float last_spawn_time = - 1000000; // lazy solution FTW
-    private bool spawning = false;
+    public bool spawning = false;
     public int max_enemies_weight;
     
     void Start()
@@ -49,7 +49,6 @@ public class Spawner : MonoBehaviour
             Debug.LogError("Can't stop spawning! not spawning.");
         }
         spawning = false;
-        // Delete all enemies here?
     }
 
     public void SetLevel(List<EnemyGroup> _enemy_groups, int _max_enemies_weight)
@@ -59,7 +58,6 @@ public class Spawner : MonoBehaviour
         {
             enemy_groups_to_spawn.Add(enemy_group);
         }
-        Debug.Log(enemy_groups_to_spawn.Count);
         max_enemies_weight = _max_enemies_weight;
     }
 
@@ -70,7 +68,6 @@ public class Spawner : MonoBehaviour
 
         if (Time.time - last_spawn_time < spawn_duration)
         {
-            Debug.Log(string.Format("Time not satisfied: {0}, {1}", Time.time, last_spawn_time));
             return false;
         }
         
@@ -148,6 +145,7 @@ public class Spawner : MonoBehaviour
             Debug.LogError("No valid position to spawn");
             return Vector3.zero;
         }
+
         return valid_spawn_positions[Random.Range(0, valid_spawn_positions.Count)];
     }
 

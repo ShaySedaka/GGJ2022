@@ -23,7 +23,7 @@ public class UpgradeCanvasManager : Singleton<UpgradeCanvasManager>
     [SerializeField] private TextMeshProUGUI _slot4Description;
 
 
-    public void PromptUpgradeCanvas(Upgrade upgradeSlot1, Upgrade upgradeSlot2, Upgrade upgradeSlot3, Upgrade upgradeSlot4, uint upgradesToMake)
+    public void PromptUpgradeCanvas(Upgrade upgradeSlot1, Upgrade upgradeSlot2, Upgrade upgradeSlot3, Upgrade upgradeSlot4, int upgradesToMake)
     {
         _upgradesToMake.text = upgradesToMake.ToString();
 
