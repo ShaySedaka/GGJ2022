@@ -9,9 +9,14 @@ public class ZenaCombat : Hero
     private Rigidbody2D _rigidBody;
 
     [SerializeField]
-    private Transform _attackPoint;
+    private Transform _lightAttackPoint;
     [SerializeField]
-    private float _attackRange = 0.5f;
+    private Transform _heavyAttackPoint;
+
+    [SerializeField]
+    private float _lightAttackRange = 0.5f;
+    [SerializeField]
+    private float _heavyAttackRange = 0.5f;
 
     public LayerMask enemyLayers;
 
@@ -24,7 +29,7 @@ public class ZenaCombat : Hero
     private bool _isDashing = false;
 
     private float _lightAttackDelay = 0.7f;
-    private float _heavyAttackDelay = 0.7f;
+    private float _heavyAttackDelay = 1.3f;
 
 
     [SerializeField]
@@ -70,7 +75,7 @@ public class ZenaCombat : Hero
         GameManager.Instance.Player.LockInput = true;
         yield return new WaitForSeconds(_heavyAttackDelay);  //Animation Duration = delay      
 
-        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, enemyLayers);
+        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_heavyAttackPoint.position, _heavyAttackRange, enemyLayers);
 
         if (enemiesHit.Length > 0)
         {
@@ -100,7 +105,7 @@ public class ZenaCombat : Hero
         GameManager.Instance.Player.LockInput = true; 
         yield return new WaitForSeconds(_lightAttackDelay);  //Animation Duration = delay      
         
-        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, enemyLayers);
+        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_lightAttackPoint.position, _lightAttackRange, enemyLayers);
 
         if (enemiesHit.Length > 0)
         {
@@ -141,7 +146,7 @@ public class ZenaCombat : Hero
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(_attackPoint.position, _attackRange);
+        Gizmos.DrawWireSphere(_lightAttackPoint.position, _lightAttackRange);
     }
 
     public void UpgradeStrength(int damageIncrease)
