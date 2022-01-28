@@ -7,6 +7,10 @@ public class Spawner : MonoBehaviour
     // List here new enemies.
     public Enemy BrutePrefab;
     public Enemy ParasitePrefab;
+    public Enemy RangerPrefab;
+    public Enemy DronePrefab;
+    public Enemy PsychoPrefab;
+    public Enemy BigMamaPrefab;
 
     private List<EnemyGroup> enemy_groups_to_spawn;
     private List<Enemy> current_enemies = new List<Enemy>();
@@ -108,6 +112,18 @@ public class Spawner : MonoBehaviour
                 case EnemyType.Parasite:
                     enemy = Instantiate(ParasitePrefab, position, Quaternion.identity);
                     break;
+                case EnemyType.Ranger:
+                    enemy = Instantiate(RangerPrefab, position, Quaternion.identity);
+                    break;
+                case EnemyType.Drone:
+                    enemy = Instantiate(DronePrefab, position, Quaternion.identity);
+                    break;
+                case EnemyType.Psycho:
+                    enemy = Instantiate(PsychoPrefab, position, Quaternion.identity);
+                    break;
+                case EnemyType.BigMama:
+                    enemy = Instantiate(BigMamaPrefab, position, Quaternion.identity);
+                    break;
                 default:
                     Debug.LogError(string.Format("Missing prefab for enemy_type {0}", enemy_type));
                     return;
@@ -118,17 +134,21 @@ public class Spawner : MonoBehaviour
 
     private Vector3 GetPosition()
     {
-        int random_first_index = Random.Range(0, spawn_positions.Count);
+        List<Vector3> valid_spawn_positions = new List<Vector3>();
         for(int i = 0; i < spawn_positions.Count; i++)
         {
-            Vector3 position = spawn_positions[(random_first_index + i) % spawn_positions.Count];
+            Vector3 position = spawn_positions[i];
             if (IsPositionValid(position))
             {
-                return position;
+                valid_spawn_positions.Add(position);
             }
         }
-        Debug.LogError("No valid position to spawn");
-        return Vector3.zero;
+        if(valid_spawn_positions.Count == 0)
+        {
+            Debug.LogError("No valid position to spawn");
+            return Vector3.zero;
+        }
+        return valid_spawn_positions[Random.Range(0, valid_spawn_positions.Count)];
     }
 
     private bool IsPositionValid(Vector3 position)
