@@ -11,12 +11,14 @@ public class TopDownMovement : MonoBehaviour
 
     Vector2 moveDirection;
 
-    public float MovementSpeed {
+    public float MovementSpeed 
+    {
         get
         {
             return(_baseMovementSpeed + GameManager.Instance.Player.PlayerGlobalStatsRef.CurrentHero.HeroMovementSpeed);
         }
-        set => _baseMovementSpeed = value; }
+        set => _baseMovementSpeed = value; 
+    }
 
     void Start()
     {
