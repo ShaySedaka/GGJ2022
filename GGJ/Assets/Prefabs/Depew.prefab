@@ -120,9 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 160
   direction: {x: 0, y: 0}
-  Hitlayers:
-    serializedVersion: 2
-    m_Bits: 256
+  layers: 0800000009000000
   DestroyOnImpact: 1
 --- !u!58 &7063144873506124356
 CircleCollider2D:

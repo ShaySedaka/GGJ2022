@@ -14,7 +14,7 @@ public class Caltrops : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)
         {
-            //poison enemy?
+            
         }
     }
 

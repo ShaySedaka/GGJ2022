@@ -17,7 +17,7 @@ public class FadeIn : MonoBehaviour
     {
         if (collision.gameObject.layer == 7)
         {
-            Debug.Log("player went boom");
+            //damage player
         }
     }
 

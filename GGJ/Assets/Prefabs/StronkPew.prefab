@@ -100,9 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 200
   direction: {x: 0, y: 0}
-  Hitlayers:
-    serializedVersion: 2
-    m_Bits: 256
+  layers: 0800000009000000
   DestroyOnImpact: 0
 --- !u!114 &5458396248475203039
 MonoBehaviour:

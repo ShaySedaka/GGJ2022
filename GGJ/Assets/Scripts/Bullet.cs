@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
 
     public Vector2 direction;
 
-    public LayerMask layer;
+    public int[] layers;
 
     [SerializeField]
     bool DestroyOnImpact;
@@ -29,13 +29,21 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 9 || collision.gameObject.layer == 7)
+        for (int i = 0; i < layers.Length; i++)
         {
-            if (DestroyOnImpact)
+            if (collision.gameObject.layer == layers[i])
             {
-                Disable();
+                if (collision.GetComponent<Enemy>())
+                {
+                    collision.GetComponent<Enemy>().GetAttacked(5);
+                }
+                if (DestroyOnImpact)
+                {
+                    Disable();
+                }
             }
         }
+        
     }
 
     public void Disable()

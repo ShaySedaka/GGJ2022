@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4987157414353910296}
   - component: {fileID: 4987157414353910297}
   - component: {fileID: 4987157414353910310}
-  - component: {fileID: 2312426442351140180}
+  - component: {fileID: 7910648762673153664}
   m_Layer: 8
   m_Name: Psycho
   m_TagString: Untagged
@@ -97,7 +97,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.028253794, y: 0.046226025}
@@ -176,9 +176,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 10
+  slowdownDistance: 8
   pickNextWaypointDist: 6.13
-  endReachedDistance: 20
+  endReachedDistance: 8
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
---- !u!114 &2312426442351140180
+--- !u!114 &7910648762673153664
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,20 +206,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4987157414353910307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaebcf8f42dc9c34396a33de0c7c2f97, type: 3}
+  m_Script: {fileID: 11500000, guid: dbfcfbc306e9af5419e71938ccf5a59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemy_type: 4
   weight: 0
   stats:
-    Speed: 0
-    Damage: 0
-    Range: 0
-    AttackSpeed: 0
-    Health: 0
+    Damage: 20
+    Health: 15
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 128
-  AttackRange: 7.58
-  attackEffect: {fileID: 0}
-  CoolDownMelee: 3
+  AttackRange: 8
+  attackEffect: {fileID: 4721026082912429145, guid: 721e7ea6deb64cb408952562a682ec89, type: 3}

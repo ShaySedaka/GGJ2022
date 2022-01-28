@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 8255949166823217384}
   - component: {fileID: 8255949166823217367}
   - component: {fileID: 1707309149943267237}
+  - component: {fileID: 193191478}
   m_Layer: 8
-  m_Name: fatneek
+  m_Name: Chunky Boi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8255949166823217362}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14, y: -41.9, z: 0}
   m_LocalScale: {x: 3.25, y: 2.1, z: 1}
   m_Children: []
@@ -97,7 +98,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.009590745, y: 0.008896351}
@@ -157,7 +158,7 @@ MonoBehaviour:
   radius: 1.5
   height: 2
   canMove: 1
-  maxSpeed: 10
+  maxSpeed: 8
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -178,7 +179,7 @@ MonoBehaviour:
   rotationSpeed: 360
   slowdownDistance: 10
   pickNextWaypointDist: 6.13
-  endReachedDistance: 16.2
+  endReachedDistance: 20
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -209,17 +210,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaebcf8f42dc9c34396a33de0c7c2f97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy_type: 0
+  enemy_type: 6
   weight: 0
   stats:
-    Speed: 0
-    Damage: 0
-    Range: 0
-    AttackSpeed: 0
-    Health: 0
+    Damage: 15
+    Health: 50
+  PopMaster: {fileID: 0}
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 128
-  AttackRange: 0
-  attackEffect: {fileID: 0}
-  CoolDownMelee: 0
+  AttackRange: 20
+  attackEffect: {fileID: 3177063132761106139, guid: 42a84a2ecdc906243868e0e1d6215f55, type: 3}
+  CoolDownMelee: 2
+--- !u!114 &193191478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8255949166823217362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c985ef3de0cc4cf41af3afae31f155e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashDuration: 0.09

@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 // List here new enemies.
@@ -8,20 +7,18 @@ public enum EnemyType
 {
     Brute,
     Parasite,
-    Ranger, 
-    Drone, 
+    Ranger,
+    Drone,
     Psycho,
-    BigMama
+    BigMama,
+    ChunkyBoi
 
 }
 
 [Serializable]
 public class EnemyStats
 {
-    public int Speed;
     public int Damage;
-    public int Range;
-    public int AttackSpeed;
     public int Health;
 }
 
@@ -49,9 +46,9 @@ public abstract class Enemy : MonoBehaviour
     public int weight;
     [SerializeField]
     public EnemyStats stats;
-    
+    public GameObject PopMaster;
     protected EnemyState state;
-    
+
     void Start()
     {
         state = EnemyState.Idle;
@@ -79,15 +76,22 @@ public abstract class Enemy : MonoBehaviour
     public void GetAttacked(int damage)
     {
         stats.Health -= damage;
-        Debug.Log(damage);
-        if(stats.Health <= 0)
+        GameObject go = Instantiate(PopMaster, transform.position, Quaternion.identity);
+        go.GetComponent<DamagePopup>().PopDmg(damage);
+        Debug.Log("enemy takes " + damage);
+
+        if (GetComponent<Flash>())
+        {
+            GetComponent<Flash>().GetHit();
+        }
+        if (stats.Health <= 0)
         {
             Die();
         }
     }
-    
+
     void Die()
     {
-        state = EnemyState.Dying;
+        Destroy(gameObject);
     }
 }
