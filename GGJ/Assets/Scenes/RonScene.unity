@@ -537,9 +537,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.46666667}
+  m_Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 0.5882353}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -651,6 +651,7 @@ MonoBehaviour:
   _utilityStaminaCost: 25
   _lightAttackDamage: 11
   _heavyAttackDamage: 20
+  _attackSpeedBonus: 0
   MaxHeroStamina: 100
   CurrentHeroStamina: 50
   HeroStaminaRegenerate: 5
@@ -666,6 +667,7 @@ MonoBehaviour:
     m_Bits: 256
   _dashSpeed: 150
   _dashTime: 0.1
+  _attackSpeedBonusForTesting: 1
 --- !u!61 &1304649570
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -795,6 +797,7 @@ MonoBehaviour:
   _utilityStaminaCost: 0
   _lightAttackDamage: 0
   _heavyAttackDamage: 0
+  _attackSpeedBonus: 0
   MaxHeroStamina: 100
   CurrentHeroStamina: 50
   HeroStaminaRegenerate: 5
@@ -806,9 +809,10 @@ MonoBehaviour:
   _coolDownHA: 0
   LApool: {fileID: 1705816757}
   HApool: {fileID: 1705816758}
-  _firePoint: {fileID: 0}
+  _firePoint: {fileID: 1991001158}
   _heavyChargeTime: 0
   _caltoprs: {fileID: 0}
+  BackOffUnlocked: 0
 --- !u!114 &1705816757
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -39,6 +39,7 @@ public class TopDownMovement : MonoBehaviour
             float moveY = Input.GetAxisRaw("Vertical");
             moveDirection = new Vector2(moveX, moveY).normalized;
             Move();
+
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 SwitchCharacters();

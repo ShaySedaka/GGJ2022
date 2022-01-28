@@ -15,6 +15,19 @@ public class PlayerManager : MonoBehaviour
 
     public bool LockInput = false;
 
+    public bool LockRegen = false;
+
+    public void FreezePlayer()
+    {
+        LockInput = true;
+        LockRegen = true;
+    }
+
+    public void UnfreezePlayer()
+    {
+        LockInput = false;
+        LockRegen = false;
+    }
 
 
 }

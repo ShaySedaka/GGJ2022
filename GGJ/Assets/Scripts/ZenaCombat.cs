@@ -23,7 +23,11 @@ public class ZenaCombat : Hero
     private int direction;
     private bool _isDashing = false;
 
-    private void Update()
+
+    [SerializeField]
+    private float _attackSpeedBonusForTesting;
+
+    void Update()
     {
         if (!GameManager.Instance.Player.LockInput)
         {
@@ -51,8 +55,9 @@ public class ZenaCombat : Hero
 
     public override void LightAttack()
     {
-        if (CurrentHeroStamina >= LightAttackCost)
+        if (CurrentHeroStamina >= LightAttackCost && _timeSinceLastAttack >= AttackCooldown)
         {
+            _timeSinceLastAttack = 0;
             GameManager.Instance.Player.LockInput = true;
             Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, enemyLayers);
 
@@ -99,5 +104,20 @@ public class ZenaCombat : Hero
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(_attackPoint.position, _attackRange);
+    }
+
+    public void UpgradeStrength(int damageIncrease)
+    {
+        _lightAttackDamage += damageIncrease;
+    }
+
+    public void UpgradeVitality(float regenIncrease)
+    {
+        HeroHealthRegenerate += regenIncrease;
+    }
+
+    public void UpgradeAgility(float movementIncrease)
+    {
+        _dashSpeed += movementIncrease;
     }
 }

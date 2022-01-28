@@ -29,9 +29,11 @@ public class PiperCombat : Hero
     [SerializeField]
     private GameObject _caltoprs;
 
-    private void Update()
+    [SerializeField]
+    public bool BackOffUnlocked;
+
+    void Update()
     {
-        base.Update();
         if (!GameManager.Instance.Player.LockInput)
         {
             if (Input.GetMouseButton(0))
@@ -75,7 +77,9 @@ public class PiperCombat : Hero
                 return;
             }
             _lastHA = Time.time;
+            
             GameObject bullet = HApool.GetPooledObjects();
+            
             if (bullet != null)
             {
                 bullet.transform.position = _firePoint.position;
@@ -119,6 +123,21 @@ public class PiperCombat : Hero
             Instantiate(_caltoprs, transform.position, new Quaternion());
             CurrentHeroStamina -= UtilityCost;
         }
+    }
+
+    public void UpgradeArms(int damageIncrease)
+    {
+        _lightAttackDamage += damageIncrease;
+    }
+
+    public void UpgradePersistence(float regenIncrease)
+    {
+        HeroStaminaRegenerate += regenIncrease;
+    }
+
+    public void UpgradeSwiftness(float movementIncrease)
+    {
+        HeroMovementSpeed += movementIncrease;
     }
 
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Hero : MonoBehaviour
 {
     [SerializeField]
-    private float _lightAttackStaminaCost;
+    private float _lightAttackStaminaCost; 
     [SerializeField]
     private float _heavyAttackStaminaCost;
     [SerializeField]
@@ -15,6 +15,13 @@ public abstract class Hero : MonoBehaviour
     protected int _lightAttackDamage;
     [SerializeField]
     protected int _heavyAttackDamage;
+
+    [SerializeField]
+    private float _attackSpeedBonus = 0;
+
+    public float AttackCooldown { get => 1f / (1f + (_attackSpeedBonus / 100f)); }
+
+    protected float _timeSinceLastAttack = 0;
 
     [SerializeField]
     public float MaxHeroStamina;
@@ -41,21 +48,25 @@ public abstract class Hero : MonoBehaviour
     public abstract void HeavyAttack();
     public abstract void Utility();
 
-    protected void Update()
+    void Update()
     {
         RegenHeroHealth();
+        UpdateCooldowns();
     }
 
     private void RegenHeroHealth()
     {
-        if (CurrentHeroHealth + HeroHealthRegenerate < MaxHeroHealth)
+        if(!GameManager.Instance.Player.LockRegen)
         {
-            CurrentHeroHealth += HeroHealthRegenerate * Time.deltaTime;
-        }
-        else if (CurrentHeroHealth + HeroHealthRegenerate == MaxHeroHealth)
-        {
-            CurrentHeroHealth = MaxHeroHealth;
-        }
+            if (CurrentHeroHealth + HeroHealthRegenerate < MaxHeroHealth)
+            {
+                CurrentHeroHealth += HeroHealthRegenerate * Time.deltaTime;
+            }
+            else if (CurrentHeroHealth + HeroHealthRegenerate == MaxHeroHealth)
+            {
+                CurrentHeroHealth = MaxHeroHealth;
+            }
+        }            
     }
 
     public void TakeDamage(int damage)
@@ -64,6 +75,19 @@ public abstract class Hero : MonoBehaviour
         if(CurrentHeroHealth <= 0)
         {
             GameManager.Instance.GameOverScreen();
+        }
+    }
+
+    private void UpdateCooldowns()
+    {
+        UpdateAttackCooldown();
+    }
+
+    private void UpdateAttackCooldown()
+    {
+        if(_timeSinceLastAttack < AttackCooldown)
+        {
+            _timeSinceLastAttack += Time.deltaTime;
         }
     }
 
