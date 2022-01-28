@@ -1,48 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TopDownMovement : MonoBehaviour
 {
-    private InputHandler input;
-
     [SerializeField]
     private float MoveSpeed;
 
     private Rigidbody2D rb;
 
-    [SerializeField]
-    private float checkRadius = 0.4f;
-
-    [SerializeField]
-    LayerMask Ground;
-
-    public Transform GroundCheck;
-
-    [SerializeField]
-    private Camera cam;
+    Vector2 moveDirection;
 
     void Start()
     {
-        input = GetComponent<InputHandler>();
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        bool grounded = Physics.CheckSphere(GroundCheck.position, checkRadius, Ground);
-        var targetVector = new Vector3(input.InputVector.x, 0, input.InputVector.y);
-        if (grounded)
-        {
-            MoveTowardTarget(targetVector);
-        }
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+        moveDirection = new Vector2(moveX, moveY).normalized;
+        Move();
     }
 
-    void MoveTowardTarget(Vector3 target)
+    void Move()
     {
-        target = Quaternion.Euler(0, cam.gameObject.transform.rotation.eulerAngles.y, 0) * target;
-        rb.velocity = target * MoveSpeed;
+        rb.velocity = moveDirection * MoveSpeed;
     }
 
 }
