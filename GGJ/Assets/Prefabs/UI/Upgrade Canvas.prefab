@@ -589,6 +589,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8730999749123613437}
     m_Modifications:
+    - target: {fileID: 1975523394386245575, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0.5801887
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975523394386245575, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_EffectColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975523394386245575, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0.9287005
+      objectReference: {fileID: 0}
     - target: {fileID: 2133148619373451329, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -689,6 +701,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Upgrade Panel
       objectReference: {fileID: 0}
+    - target: {fileID: 4349418091400296253, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349418091400296253, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5378287869421304228, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1a8a1a0cbb46b374bb7370d858387e28, type: 3}
+    - target: {fileID: 5378287869421304228, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5378287869421304228, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5378287869421304228, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6760286328779006661, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
       propertyPath: m_EffectColor.b
       value: 0.27058825
@@ -743,6 +779,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8730999749123613437}
     m_Modifications:
+    - target: {fileID: 1965258128659953459, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965258128659953459, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965258128659953459, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975523394386245575, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_EffectColor.g
+      value: 0.86666673
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975523394386245575, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2133148619373451329, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -842,6 +898,30 @@ PrefabInstance:
     - target: {fileID: 3253013144468210684, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
       propertyPath: m_Name
       value: Upgrade Panel (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349418091400296253, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349418091400296253, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5378287869421304228, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 799d90ead9b132645b77d772fe187406, type: 3}
+    - target: {fileID: 5378287869421304228, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5378287869421304228, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5378287869421304228, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6760286328779006661, guid: 7cd4359dde85ca54bb039b5336470788, type: 3}
       propertyPath: m_EffectColor.b
