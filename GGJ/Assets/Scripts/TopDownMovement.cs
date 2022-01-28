@@ -30,6 +30,12 @@ public class TopDownMovement : MonoBehaviour
         if(!GameManager.Instance.Player.LockInput)
         {
             float moveX = Input.GetAxisRaw("Horizontal");
+            if( (moveX > 0 && GameManager.Instance.Player.gameObject.transform.localScale.x < 0) ||
+                (moveX < 0 && GameManager.Instance.Player.gameObject.transform.localScale.x > 0) )
+            {
+                GameManager.Instance.Player.gameObject.transform.localScale = new Vector3(-GameManager.Instance.Player.gameObject.transform.localScale.x , 
+                GameManager.Instance.Player.gameObject.transform.localScale.y, GameManager.Instance.Player.gameObject.transform.localScale.z);
+            }
             float moveY = Input.GetAxisRaw("Vertical");
             moveDirection = new Vector2(moveX, moveY).normalized;
             Move();
