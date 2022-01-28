@@ -66,10 +66,10 @@ public class LevelManager : MonoBehaviour
                 }
                 break;
             case LevelState.UpgradeScreen:
-                if(!upgrade_manager.is_upgrading)
+              /*  if(!upgrade_manager.is_upgrading)
                 {
                     WaveStart();
-                }
+                }*/
                 break;
         }
     }
@@ -113,7 +113,7 @@ public class LevelManager : MonoBehaviour
     private void ActivateUpgradeScreen()
     {
         state = LevelState.UpgradeScreen;
-        upgrade_manager.Upgrade(GameManager.Instance.player.CalculateLevelUps());
+        //upgrade_manager.Upgrade(GameManager.Instance.player.CalculateLevelUps());
     }
 
     private void StartSpawner()
