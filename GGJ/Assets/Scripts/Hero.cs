@@ -30,7 +30,8 @@ public abstract class Hero : MonoBehaviour
     [SerializeField]
     protected int _heavyAttackDamage;
 
-    public float HeavyAttackCooldown = 2;
+    [SerializeField]
+    public float HeavyAttackCooldown;
 
     protected float _timeSinceLastHeavyAttack;
 

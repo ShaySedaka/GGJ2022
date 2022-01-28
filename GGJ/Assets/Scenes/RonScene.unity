@@ -676,6 +676,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6023173342740014943, guid: 2765b1b8e2858dc40bc8b8741e0f7b1a, type: 3}
+      propertyPath: HeavyAttackCooldown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023173342740014943, guid: 2765b1b8e2858dc40bc8b8741e0f7b1a, type: 3}
+      propertyPath: _utilityStaminaCost
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023173342740014943, guid: 2765b1b8e2858dc40bc8b8741e0f7b1a, type: 3}
       propertyPath: _lightAttackStaminaCost
       value: 10
       objectReference: {fileID: 0}

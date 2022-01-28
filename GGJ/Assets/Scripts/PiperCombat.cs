@@ -4,18 +4,7 @@ using UnityEngine;
 public class PiperCombat : Hero
 {
     private float _lightAttackDelay = 0;
-    private float _heavyAttackDelay = 1.3f;
-
-
-    [SerializeField]
-    private float _coolDownLA;
-
-    private float _lastLA;
-
-    [SerializeField]
-    private float _coolDownHA;
-
-    private float _lastHA;
+    private float _heavyAttackDelay = 1;
 
     public ObjectPool LApool;
     public ObjectPool HApool;
@@ -24,9 +13,9 @@ public class PiperCombat : Hero
     private Transform _firePoint;
 
     [SerializeField]
-    private float _heavyChargeTime;
+    private float _heavyShotChargeTime;
 
-    private float _heavyChargeTimer;
+    private float _heavyShotChargeTimer;
 
     [SerializeField]
     private GameObject _caltoprs;
@@ -46,18 +35,19 @@ public class PiperCombat : Hero
 
             if (Input.GetMouseButton(1))
             {
-                _heavyChargeTimer += Time.deltaTime;
+                StopMoving();
+                _heavyShotChargeTimer += Time.deltaTime;
             }
             if (Input.GetMouseButtonUp(1))
             {
-                if (_heavyChargeTimer >= _heavyChargeTime)
+                if (_heavyShotChargeTimer >= _heavyShotChargeTime)
                 {
                     HeavyAttack();
-                    _heavyChargeTimer = 0;
+                    _heavyShotChargeTimer = 0;
                 }
                 else
                 {
-                    _heavyChargeTimer = 0;
+                    _heavyShotChargeTimer = 0;
                 }
             }
 
@@ -66,33 +56,6 @@ public class PiperCombat : Hero
                 Utility();
             }
         }
-            
-
-    }
-    public override void HeavyAttack()
-    {
-        if(CurrentHeroStamina >= HeavyAttackCost)
-        {
-            
-            
-            if (Time.time - _lastHA < _coolDownHA)
-            {
-                return;
-            }
-            _lastHA = Time.time;
-            
-            GameObject bullet = HApool.GetPooledObjects();
-            
-            if (bullet != null)
-            {
-                bullet.transform.position = _firePoint.position;
-                Bullet shot = bullet.GetComponent<Bullet>();
-                bullet.SetActive(true);
-                shot.direction = _firePoint.right;
-            }
-
-            CurrentHeroStamina -= HeavyAttackCost;
-        }        
     }
 
     public override void LightAttack()
@@ -103,7 +66,7 @@ public class PiperCombat : Hero
             _timeSinceLastLightAttack = 0;
             StopMoving();
             StartCoroutine(LightShot());
-        }   
+        }
     }
 
     private IEnumerator LightShot()
@@ -126,12 +89,46 @@ public class PiperCombat : Hero
         GameManager.Instance.Player.LockInput = false;
     }
 
+    public override void HeavyAttack()
+    {
+        if (CurrentHeroStamina >= HeavyAttackCost && _timeSinceLastHeavyAttack >= HeavyAttackCooldown)
+        {
+            CurrentHeroStamina -= HeavyAttackCost;
+            _timeSinceLastHeavyAttack = 0;
+            
+            StartCoroutine(HeavyShot());
+        }            
+    }
+
+    private IEnumerator HeavyShot()
+    {
+        // Play Animation
+        GameManager.Instance.Player.LockInput = true;
+        yield return new WaitForSeconds(_heavyAttackDelay);  //Animation Duration = delay      
+
+        GameObject bullet = HApool.GetPooledObjects();
+
+        if (bullet != null)
+        {
+            bullet.transform.position = _firePoint.position;
+            Bullet shot = bullet.GetComponent<Bullet>();
+            bullet.SetActive(true);
+            shot.direction = _firePoint.right * Mathf.Sign(GameManager.Instance.Player.gameObject.transform.localScale.x);
+
+        }
+
+        Debug.Log("HeavyShot");
+        GameManager.Instance.Player.LockInput = false;
+    }
+
     public override void Utility()
     {
-        if (CurrentHeroStamina >= UtilityCost)
+        if (CurrentHeroStamina >= UtilityCost && _timeSinceLastUtility >= UtilityCooldown)
         {
-            Instantiate(_caltoprs, transform.position, new Quaternion());
             CurrentHeroStamina -= UtilityCost;
+            _timeSinceLastUtility = 0;
+
+            Instantiate(_caltoprs, transform.position, new Quaternion());
         }
     }
 
