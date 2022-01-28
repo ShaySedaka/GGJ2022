@@ -32,5 +32,8 @@ public class GameManager : Singleton<GameManager>
 
     }
 
-
+    internal void GameOverScreen()
+    {
+        
+    }
 }
