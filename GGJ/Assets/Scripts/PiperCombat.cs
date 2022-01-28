@@ -23,7 +23,8 @@ public class PiperCombat : Hero
 
     private float HeavyChargeTimer;
 
-   
+    [SerializeField]
+    GameObject Caltoprs;
 
     void Update()
     {
@@ -48,6 +49,12 @@ public class PiperCombat : Hero
                 HeavyChargeTimer = 0;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Utility();
+        }
+
     }
     public override void HeavyAttack()
     {
@@ -90,7 +97,7 @@ public class PiperCombat : Hero
 
     public override void Utility()
     {
-        throw new System.NotImplementedException();
+        Instantiate(Caltoprs, transform.position, new Quaternion());
     }
 
 

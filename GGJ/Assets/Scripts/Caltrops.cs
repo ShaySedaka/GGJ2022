@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Caltrops : MonoBehaviour
@@ -9,7 +8,7 @@ public class Caltrops : MonoBehaviour
     private void Start()
     {
         rend = GetComponent<SpriteRenderer>();
-        Color c = rend.material.color;
+        StartCoroutine("fadeOut");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,12 +20,16 @@ public class Caltrops : MonoBehaviour
 
     IEnumerator fadeOut()
     {
-        for (float i = 1; i < 0; i -= 0.05f)
+        yield return new WaitForSeconds(2f);
+
+        for (float i = 1f; i >= -0.05f; i -= 0.05f)
         {
-            float c = rend.material.color.a;
-            c -= i;
+            Color c = rend.material.color;
+            c.a = i;
+            rend.material.color = c;
             yield return new WaitForSeconds(0.05f);
         }
+        Destroy(gameObject);
     }
 
 

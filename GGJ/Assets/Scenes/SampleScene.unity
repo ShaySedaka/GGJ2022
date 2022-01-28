@@ -395,6 +395,7 @@ MonoBehaviour:
   HApool: {fileID: 1705816758}
   FirePoint: {fileID: 1991001158}
   HeavyChargeTime: 1.5
+  Caltoprs: {fileID: 883260724214628200, guid: 1a5348d00f0987d48962a3f94a8f11f4, type: 3}
 --- !u!114 &1705816754
 MonoBehaviour:
   m_ObjectHideFlags: 0
