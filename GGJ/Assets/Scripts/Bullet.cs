@@ -8,8 +8,7 @@ public class Bullet : MonoBehaviour
 
     public Vector2 direction;
 
-    [SerializeField]
-    LayerMask Hitlayers;
+    public LayerMask layer;
 
     [SerializeField]
     bool DestroyOnImpact;
@@ -30,7 +29,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 8)
+        if (collision.gameObject.layer == 9 || collision.gameObject.layer == 7)
         {
             if (DestroyOnImpact)
             {

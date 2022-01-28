@@ -50,7 +50,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]
     public EnemyStats stats;
     
-    private EnemyState state;
+    protected EnemyState state;
     
     void Start()
     {
