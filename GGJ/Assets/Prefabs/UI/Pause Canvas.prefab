@@ -687,6 +687,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Restart Button
       objectReference: {fileID: 0}
+    - target: {fileID: 6029188291896501557, guid: 8a46e84a6e020634aa88ad199b8e2eac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6029188291896501557, guid: 8a46e84a6e020634aa88ad199b8e2eac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6029188291896501557, guid: 8a46e84a6e020634aa88ad199b8e2eac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6363120724269083455, guid: 8a46e84a6e020634aa88ad199b8e2eac, type: 3}
       propertyPath: m_text
       value: RESTART

@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
 {
-    //[SerializeField]public UpgradeCanvas upgradeCanvas;
-
     private System.Random random;
 
     public bool is_upgrading;
@@ -30,12 +28,6 @@ public class UpgradeManager : MonoBehaviour
         currect_level = 1;
         random = new System.Random();
         CreateBaseUpgrades();
-    }
-
-    
-    void Update()
-    {
-        
     }
 
     public void CreateBaseUpgrades()
@@ -77,7 +69,7 @@ public class UpgradeManager : MonoBehaviour
         Upgrade upgradeZena2 = zena_upgrades[indexZena2];
         Upgrade upgradePiper1 = piper_upgrades[indexPiper1];
         Upgrade upgradePiper2 = piper_upgrades[indexPiper2];
-        //UpgradeCanvas.PromptUpgradeCanvas(upgradeZena1, upgradeZena2, upgradePiper1, upgradePiper2);
+        UpgradeCanvasManager.Instance.PromptUpgradeCanvas(upgradeZena1, upgradeZena2, upgradePiper1, upgradePiper2, upgradesToMake);
     }
 
     public void OnUpgradePress(int upgrade_slot)
@@ -122,7 +114,7 @@ public class UpgradeManager : MonoBehaviour
         }
         else
         {
-            //UpgradeCanvas.HideCanvas();
+            UpgradeCanvasManager.Instance.HideUpgradeCanvas();
             is_upgrading = false;
         }
     }

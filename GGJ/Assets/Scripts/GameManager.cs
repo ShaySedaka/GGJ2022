@@ -3,36 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    public static GameManager Instance { get; private set; }
-    //public Player player;
+    [SerializeField] private GameObject _gameOverCanvas;
+    [SerializeField] private GameObject _gamePausedCanvas;
 
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
-
-    void Start()
+    private void Update()
     {
         
     }
 
-    void Update()
+    public void OnContinue()
     {
-        
+
     }
 
-    internal void GameOverScreen()
+    public void OnRestart()
     {
-        throw new NotImplementedException();
+
     }
+
+    public void OnQuit()
+    {
+
+    }
+
+
 }
