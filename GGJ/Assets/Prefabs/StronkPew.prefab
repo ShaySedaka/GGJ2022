@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6355986794288585028}
   - component: {fileID: 7434439689719960571}
   - component: {fileID: 5458396248475203039}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: StronkPew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4488984639471369949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -67.7, y: 2.4665828, z: -28.064087}
-  m_LocalScale: {x: 4.02, y: 15.38, z: 1}
+  m_LocalScale: {x: 3, y: 9, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

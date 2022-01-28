@@ -7,7 +7,12 @@ using UnityEngine;
 public enum EnemyType
 {
     Brute,
-    Parasite
+    Parasite,
+    Ranger, 
+    Drone, 
+    Psycho,
+    BigMama
+
 }
 
 [Serializable]
@@ -35,6 +40,7 @@ public enum EnemyState
     Walking,
     Attacking,
     Dying,
+    Idle
 }
 
 public abstract class Enemy : MonoBehaviour
@@ -48,20 +54,15 @@ public abstract class Enemy : MonoBehaviour
     
     void Start()
     {
-        state = EnemyState.Walking;
+        state = EnemyState.Idle;
     }
 
     void Update()
     {
         // State machine:
-        switch(state)
+        switch (state)
         {
             case EnemyState.Walking:
-                if((GameManager.Instance.Player.transform.position - transform.position).magnitude < stats.Range)
-                {
-                    state = EnemyState.Attacking;
-                }
-                // Nav Mesh Here????
                 break;
             case EnemyState.Attacking:
                 AttackUpdate();
@@ -70,7 +71,6 @@ public abstract class Enemy : MonoBehaviour
                 DyingUpdate();
                 break;
         }
-
     }
 
     protected abstract void AttackUpdate();
