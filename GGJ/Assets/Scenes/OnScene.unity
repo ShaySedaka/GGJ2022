@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 162000892}
   - component: {fileID: 162000893}
   - component: {fileID: 162000894}
+  - component: {fileID: 162000895}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -171,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2d7dbb079c5654099601f2dc349675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 40
+  _baseMovementSpeed: 10
 --- !u!114 &162000892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +234,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.6106527, y: 12.378509}
   m_EdgeRadius: 0
+--- !u!114 &162000895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162000889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4c6cb8c77df5848891da665c680822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ControllerRef: {fileID: 162000891}
+  PlayerGlobalStatsRef: {fileID: 162000892}
+  ZenaRef: {fileID: 1304649569}
+  PiperRef: {fileID: 1705816753}
+  LockInput: 0
+  LockRegen: 0
 --- !u!1 &229090316 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4292317499500024625, guid: 584d5648e651ef14383a6b110e1fd611, type: 3}
@@ -966,7 +985,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2065006605}
   m_Father: {fileID: 162000890}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1033,9 +1053,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310612aca73139147b9951a2f717e4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lightAttackStaminaCost: 0
+  _heavyAttackStaminaCost: 0
+  _utilityStaminaCost: 0
+  _lightAttackDamage: 0
+  _heavyAttackDamage: 0
+  _attackSpeedBonus: 0
   MaxHeroStamina: 100
   CurrentHeroStamina: 50
   HeroStaminaRegenerate: 5
+  MaxHeroHealth: 0
+  CurrentHeroHealth: 0
+  HeroHealthRegenerate: 0
+  HeroMovementSpeed: 0
+  _rigidBody: {fileID: 162000893}
+  _attackPoint: {fileID: 2065006605}
+  _attackRange: 0.5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  _dashSpeed: 150
+  _dashTime: 0.1
+  _attackSpeedBonusForTesting: 0
 --- !u!1 &1369157439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,6 +1250,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1660883303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1660883305}
+  - component: {fileID: 1660883304}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1660883304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660883303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ccc85dc1ffcb44592a8fe5f2317d28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameOverCanvas: {fileID: 0}
+  _gamePausedCanvas: {fileID: 0}
+  Player: {fileID: 162000895}
+--- !u!4 &1660883305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660883303}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.4022818, y: -18.828955, z: -144.72769}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1705816750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,9 +1394,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed8371412129104b905fa9fc468dfd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lightAttackStaminaCost: 0
+  _heavyAttackStaminaCost: 0
+  _utilityStaminaCost: 0
+  _lightAttackDamage: 0
+  _heavyAttackDamage: 0
+  _attackSpeedBonus: 0
   MaxHeroStamina: 0
   CurrentHeroStamina: 0
   HeroStaminaRegenerate: 0
+  MaxHeroHealth: 0
+  CurrentHeroHealth: 0
+  HeroHealthRegenerate: 0
+  HeroMovementSpeed: 0
   _coolDownLA: 0.2
   _coolDownHA: 1
   LApool: {fileID: 1705816757}
@@ -1319,6 +1414,7 @@ MonoBehaviour:
   _firePoint: {fileID: 1991001158}
   _heavyChargeTime: 1
   _caltoprs: {fileID: 0}
+  BackOffUnlocked: 0
 --- !u!114 &1705816757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1645,6 +1741,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2065006604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2065006605}
+  m_Layer: 7
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2065006605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065006604}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1304649567}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2102969086
 GameObject:
   m_ObjectHideFlags: 0
