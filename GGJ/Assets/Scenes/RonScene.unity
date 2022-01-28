@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ccc85dc1ffcb44592a8fe5f2317d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 162000895}
 --- !u!1 &162000889
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 162000890}
+  - component: {fileID: 162000895}
   - component: {fileID: 162000891}
   - component: {fileID: 162000892}
   - component: {fileID: 162000893}
@@ -248,7 +250,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &162000894
 CircleCollider2D:
@@ -266,6 +268,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &162000895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162000889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4c6cb8c77df5848891da665c680822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ControllerRef: {fileID: 162000891}
+  PlayerGlobalStatsRef: {fileID: 162000892}
+  ZenaRef: {fileID: 1304649569}
+  PiperRef: {fileID: 1705816753}
 --- !u!1 &386806867
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,17 +645,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310612aca73139147b9951a2f717e4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lightAttackStaminaCost: 10
+  _heavyAttackStaminaCost: 20
+  _utilityStaminaCost: 25
+  _lightAttackDamage: 11
+  _heavyAttackDamage: 20
   MaxHeroStamina: 100
   CurrentHeroStamina: 50
   HeroStaminaRegenerate: 5
   MaxHeroHealth: 100
   CurrentHeroHealth: 20
   HeroHealthRegenerate: 5
+  _rigidBody: {fileID: 162000893}
   _attackPoint: {fileID: 1126367672}
   _attackRange: 5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
+  _dashSpeed: 150
+  _dashTime: 0.1
 --- !u!61 &1304649570
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -762,6 +788,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed8371412129104b905fa9fc468dfd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lightAttackStaminaCost: 0
+  _heavyAttackStaminaCost: 0
+  _utilityStaminaCost: 0
+  _lightAttackDamage: 0
+  _heavyAttackDamage: 0
   MaxHeroStamina: 100
   CurrentHeroStamina: 50
   HeroStaminaRegenerate: 5
@@ -952,10 +983,10 @@ MonoBehaviour:
     Damage: 0
     Range: 0
     AttackSpeed: 0
-    Health: 0
+    Health: 35
   PlayerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   AttackRange: 0
   attackEffect: {fileID: 0}
   CoolDownMelee: 0

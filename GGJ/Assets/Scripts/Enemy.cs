@@ -79,6 +79,7 @@ public abstract class Enemy : MonoBehaviour
     public void GetAttacked(int damage)
     {
         stats.Health -= damage;
+        Debug.Log(damage);
         if(stats.Health <= 0)
         {
             Die();

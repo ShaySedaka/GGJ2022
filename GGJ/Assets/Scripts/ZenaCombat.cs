@@ -5,17 +5,33 @@ using UnityEngine;
 public class ZenaCombat : Hero
 {
     [SerializeField]
+    private Rigidbody2D _rigidBody;
+
+    [SerializeField]
     private Transform _attackPoint;
     [SerializeField]
     private float _attackRange = 0.5f;
 
     public LayerMask enemyLayers;
 
+    [SerializeField]
+    private float _dashSpeed;
+    [SerializeField]
+    private float _dashTime;
+    private float _startDashTime;
+    private int direction;
+    private bool _isDashing = false;
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             LightAttack();
+        }
+
+        if( (Input.GetKeyDown(KeyCode.LeftShift)) )
+        {
+            Utility();
         }
     }
 
@@ -50,14 +66,25 @@ public class ZenaCombat : Hero
     {
         if (CurrentHeroStamina >= UtilityCost)
         {
-            Dash();
+            if(!_isDashing)
+            {
+                StartCoroutine(Dash());
+            }            
             CurrentHeroStamina -= UtilityCost;
         }
     }
 
-    private void Dash()
+    private IEnumerator Dash()
     {
+        float elapsedTime = 0;
+        while (elapsedTime < _dashTime)
+        {
+            _rigidBody.velocity = Vector2.right * _dashSpeed;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
 
+        yield return null;
     }
 
     private void OnDrawGizmosSelected()

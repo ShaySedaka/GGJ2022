@@ -4,11 +4,17 @@ using UnityEngine;
 
 public abstract class Hero : MonoBehaviour
 {
+    [SerializeField]
     private float _lightAttackStaminaCost;
+    [SerializeField]
     private float _heavyAttackStaminaCost;
+    [SerializeField]
     private float _utilityStaminaCost;
 
+    [SerializeField]
     protected int _lightAttackDamage;
+    [SerializeField]
+    protected int _heavyAttackDamage;
 
     [SerializeField]
     public float MaxHeroStamina;

@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    //public Player player;
+    public PlayerManager Player;
 
 
     private void Awake()
