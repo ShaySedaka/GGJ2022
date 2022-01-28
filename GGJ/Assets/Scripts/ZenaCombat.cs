@@ -27,8 +27,9 @@ public class ZenaCombat : Hero
     [SerializeField]
     private float _attackSpeedBonusForTesting;
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         if (!GameManager.Instance.Player.LockInput)
         {
             if (Input.GetMouseButtonDown(0))
@@ -41,8 +42,6 @@ public class ZenaCombat : Hero
                 Utility();
             }
         }
-        
-            
     }
 
     public override void HeavyAttack()

@@ -48,7 +48,7 @@ public abstract class Hero : MonoBehaviour
     public abstract void HeavyAttack();
     public abstract void Utility();
 
-    void Update()
+    protected virtual void Update()
     {
         RegenHeroHealth();
         UpdateCooldowns();
