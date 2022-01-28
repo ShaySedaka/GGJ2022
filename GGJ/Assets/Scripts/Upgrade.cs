@@ -27,8 +27,8 @@ public class StrengthUpgrade : Upgrade
 {
     public StrengthUpgrade(Hero upgrade_character): base(upgrade_character)
     {
-        upgrade_name = "Strength";
-        upgrade_description = "Increase Swing Damage!";
+        upgrade_name = "STRENGTH";
+        upgrade_description = "Increase swing damage";
         upgrade_color = Color.red;
         upgrade_color_dark = Color.black;
         is_unique = false;
@@ -44,7 +44,7 @@ public class VitalityUpgrade : Upgrade
     public VitalityUpgrade(Hero upgrade_character) : base(upgrade_character)
     {
         upgrade_name = "Vitality";
-        upgrade_description = "Increase Health Regeneration Rate";
+        upgrade_description = "Increase health regeneration rate";
         upgrade_color = Color.red;
         upgrade_color_dark = Color.black;
         is_unique = false;
@@ -60,7 +60,7 @@ public class AgilityUpgrade : Upgrade
     public AgilityUpgrade(Hero upgrade_character) : base(upgrade_character)
     {
         upgrade_name = "Agility";
-        upgrade_description = "Decrease Dash Cooldown";
+        upgrade_description = "Increase dash distance";
         upgrade_color = Color.red;
         upgrade_color_dark = Color.black;
         is_unique = false;
@@ -108,7 +108,7 @@ public class ArmsUpgrade : Upgrade
     public ArmsUpgrade(Hero upgrade_character) : base(upgrade_character)
     {
         upgrade_name = "Arms";
-        upgrade_description = "Increase Bullet Damage!";
+        upgrade_description = "Increase bullet damage!";
         upgrade_color = Color.red;
         upgrade_color_dark = Color.black;
         is_unique = false;
