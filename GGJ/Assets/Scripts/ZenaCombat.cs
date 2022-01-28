@@ -23,6 +23,8 @@ public class ZenaCombat : Hero
     private int direction;
     private bool _isDashing = false;
 
+    private float _lightAttackDelay = 0.2f;
+
 
     [SerializeField]
     private float _attackSpeedBonusForTesting;
@@ -57,22 +59,27 @@ public class ZenaCombat : Hero
     {
         if (CurrentHeroStamina >= LightAttackCost && _timeSinceLastAttack >= AttackCooldown)
         {
-            _timeSinceLastAttack = 0;
-            GameManager.Instance.Player.LockInput = true;
-            Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, enemyLayers);
-
-            if (enemiesHit.Length > 0)
-            {
-                foreach (var enemy in enemiesHit)
-                {
-                    enemy.gameObject.GetComponent<Enemy>().GetAttacked(_lightAttackDamage);
-                }
-            }
-            
-            Debug.Log("Light");
-            GameManager.Instance.Player.LockInput = false;
+            StartCoroutine(LightSwing());
         }
 
+    }
+
+    private IEnumerator LightSwing()
+    {
+        _timeSinceLastAttack = 0;
+        yield return new WaitForSeconds(_lightAttackDelay);        
+        GameManager.Instance.Player.LockInput = true;
+        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, enemyLayers);
+
+        if (enemiesHit.Length > 0)
+        {
+            foreach (var enemy in enemiesHit)
+            {
+                enemy.gameObject.GetComponent<Enemy>().GetAttacked(_lightAttackDamage);
+            }
+        }
+
+        GameManager.Instance.Player.LockInput = false;        
     }
 
     public override void Utility()
