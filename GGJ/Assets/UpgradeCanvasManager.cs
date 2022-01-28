@@ -41,5 +41,13 @@ public class UpgradeCanvasManager : Singleton<UpgradeCanvasManager>
     public void HideUpgradeCanvas()
     {
         _upgradeCanvas.SetActive(false);
+ 
     }
+
+    public void UnHideUpgradeCanvas()
+    {
+        _upgradeCanvas.SetActive(true);
+
+    }
+
 }
