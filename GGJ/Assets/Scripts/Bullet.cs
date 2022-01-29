@@ -37,6 +37,11 @@ public class Bullet : MonoBehaviour
                 {
                     collision.GetComponent<Enemy>().GetAttacked(5);
                 }
+                else if (collision.GetComponent<PlayerManager>())
+                {
+                    GameManager.Instance.Player.PlayerGlobalStatsRef.CurrentHero.TakeDamage(20);
+                }
+                
                 if (DestroyOnImpact)
                 {
                     Disable();

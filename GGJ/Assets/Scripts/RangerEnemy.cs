@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class RangerEnemy : Enemy
 {
@@ -18,8 +20,30 @@ public class RangerEnemy : Enemy
         playerFound = Physics2D.OverlapCircleAll(transform.position, AttackRange, PlayerLayer);
         if (playerFound.Length > 0)
         {
-
             AttackUpdate();
+        }
+        Flip();
+    }
+
+    protected void Flip()
+    {
+        if ((facingR && GameManager.Instance.Player.transform.position.x > transform.position.x)
+            || (!facingR && GameManager.Instance.Player.transform.position.x <= transform.position.x))
+        {
+            facingR = !facingR;
+            transform.Rotate(new Vector3(0, 180, 0));
+        }
+    }
+    IEnumerator DealDmg()
+    {
+        yield return new WaitForSeconds(0.8f);
+        GameObject bullet = Shots.GetPooledObjects();
+        if (bullet != null)
+        {
+            bullet.transform.position = firePoint.position;
+            Bullet shot = bullet.GetComponent<Bullet>();
+            bullet.SetActive(true);
+            shot.direction = firePoint.right;
         }
     }
     protected override void AttackUpdate()
@@ -29,19 +53,11 @@ public class RangerEnemy : Enemy
             return;
         }
         lastShot = Time.time;
-
-        anim.SetTrigger("Attack");
-        GameObject bullet = Shots.GetPooledObjects();
-        if (bullet != null)
-        {
-            //Debug.Log("found");
-            bullet.transform.position = firePoint.position;
-            Bullet shot = bullet.GetComponent<Bullet>();
-            bullet.SetActive(true);
-            shot.direction = firePoint.right;
-        }
+        StartCoroutine("DealDmg");
+       
     }
 
+    
 
     protected override void DyingUpdate()
     {
