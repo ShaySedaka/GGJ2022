@@ -63,12 +63,14 @@ public class TopDownMovement : MonoBehaviour
             _playerStats.Piper.gameObject.SetActive(false);
             _playerStats.Zena.gameObject.SetActive(true);
             _playerStats.CurrentHero = _playerStats.Zena;
+            _playerStats.BenchedHero = _playerStats.Piper;
         }
         else
         {
             _playerStats.Piper.gameObject.SetActive(true);
             _playerStats.Zena.gameObject.SetActive(false);
             _playerStats.CurrentHero = _playerStats.Piper;
+            _playerStats.BenchedHero = _playerStats.Zena;
         }
     }
 

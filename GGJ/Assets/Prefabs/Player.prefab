@@ -214,6 +214,8 @@ MonoBehaviour:
   CurrentHeroHealth: 20
   HeroHealthRegenerate: 5
   HeroMovementSpeed: 0
+  HeroPortrait: {fileID: 21300000, guid: 1a8a1a0cbb46b374bb7370d858387e28, type: 3}
+  Name: Zena
   _rigidBody: {fileID: 6023173343209175571}
   _lightAttackPoint: {fileID: 6023173342227420246}
   _heavyAttackPoint: {fileID: 6585740785642183213}
@@ -378,7 +380,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6023173342333933329}
-  - component: {fileID: 6023173342333933294}
   - component: {fileID: 6023173342333933295}
   m_Layer: 7
   m_Name: Handler
@@ -402,18 +403,6 @@ Transform:
   m_Father: {fileID: 6023173342740014942}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6023173342333933294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6023173342333933328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20fee1b0fd05ce44f8016d821ec748f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &6023173342333933295
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -687,6 +676,8 @@ MonoBehaviour:
   CurrentHeroHealth: 50
   HeroHealthRegenerate: 1
   HeroMovementSpeed: 0
+  HeroPortrait: {fileID: 21300000, guid: 799d90ead9b132645b77d772fe187406, type: 3}
+  Name: Piper
   LApool: {fileID: 6023173342740014939}
   HApool: {fileID: 6023173342740014936}
   _firePoint: {fileID: 6023173342454747560}

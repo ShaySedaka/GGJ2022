@@ -103,6 +103,7 @@ public class ZenaCombat : Hero
         // Play Animation
         GameManager.Instance.Player.LockInput = true;
         
+        _animator.SetBool("HeavyAttack", true);
         yield return new WaitForSeconds(_heavyAttackDelay);  //Animation Duration = delay      
 
         Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_heavyAttackPoint.position, _heavyAttackRange, enemyLayers);
@@ -115,6 +116,7 @@ public class ZenaCombat : Hero
             }
         }
         Debug.Log("HeavySwing");
+        _animator.SetBool("HeavyAttack", false);
         GameManager.Instance.Player.LockInput = false;
     }
 

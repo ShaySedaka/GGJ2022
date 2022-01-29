@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Hero : MonoBehaviour
 {
@@ -71,7 +72,10 @@ public abstract class Hero : MonoBehaviour
 
     [SerializeField]
     public float HeroMovementSpeed;
-   
+
+    public Sprite HeroPortrait;
+    public string Name;
+
     public abstract void LightAttack();
     public abstract void HeavyAttack();
     public abstract void Utility();
