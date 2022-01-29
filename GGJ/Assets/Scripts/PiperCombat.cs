@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PiperCombat : Hero
 {
-    private float _lightAttackDelay = 0;
+    private float _lightAttackDelay = 0.6f;
     private float _heavyAttackDelay = 1;
 
     public ObjectPool LApool;
@@ -73,6 +73,7 @@ public class PiperCombat : Hero
     {
         // Play Animation
         GameManager.Instance.Player.LockInput = true;
+        _animator.SetBool("LightAttack", true);
         yield return new WaitForSeconds(_lightAttackDelay);  //Animation Duration = delay      
 
         GameObject bullet = LApool.GetPooledObjects();
@@ -86,6 +87,7 @@ public class PiperCombat : Hero
         }
 
         Debug.Log("LightShot");
+        _animator.SetBool("LightAttack", false);
         GameManager.Instance.Player.LockInput = false;
     }
 

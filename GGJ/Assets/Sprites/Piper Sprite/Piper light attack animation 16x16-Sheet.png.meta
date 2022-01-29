@@ -1,0 +1,492 @@
+fileFormatVersion: 2
+guid: bb9891d407bf9a24c8543ab0e7462a4c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2631537433340299294
+    second: Piper light attack animation 16x16-Sheet_0
+  - first:
+      213: 8526081413052670334
+    second: Piper light attack animation 16x16-Sheet_1
+  - first:
+      213: -7854520318015700464
+    second: Piper light attack animation 16x16-Sheet_2
+  - first:
+      213: -5717553715078612877
+    second: Piper light attack animation 16x16-Sheet_3
+  - first:
+      213: -1046281083607488669
+    second: Piper light attack animation 16x16-Sheet_4
+  - first:
+      213: -4421809998621800816
+    second: Piper light attack animation 16x16-Sheet_5
+  - first:
+      213: 2527352775291673169
+    second: Piper light attack animation 16x16-Sheet_6
+  - first:
+      213: -3572149558069714098
+    second: Piper light attack animation 16x16-Sheet_7
+  - first:
+      213: -8547841815698283901
+    second: Piper light attack animation 16x16-Sheet_8
+  - first:
+      213: 9100368856051341700
+    second: Piper light attack animation 16x16-Sheet_9
+  - first:
+      213: 9007018931557933225
+    second: Piper light attack animation 16x16-Sheet_10
+  - first:
+      213: 6623479265567760381
+    second: Piper light attack animation 16x16-Sheet_11
+  - first:
+      213: 6276123902999979119
+    second: Piper light attack animation 16x16-Sheet_12
+  - first:
+      213: -6006371963282805238
+    second: Piper light attack animation 16x16-Sheet_13
+  - first:
+      213: 2807413623049673194
+    second: Piper light attack animation 16x16-Sheet_14
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Piper light attack animation 16x16-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 8
+        width: 85
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1844676a59158420800000000000000
+      internalID: 2631537433340299294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piper light attack animation 16x16-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 8
+        width: 72
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e71a01f3fd9b25670800000000000000
+      internalID: 8526081413052670334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piper light attack animation 16x16-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 8
+        width: 108
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0120693c2632ff290800000000000000
+      internalID: -7854520318015700464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piper light attack animation 16x16-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 8
+        width: 108
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3783684603b27a0b0800000000000000
+      internalID: -5717553715078612877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piper light attack animation 16x16-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1309
+        y: 8
+        width: 108
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3676d5cd5ecda71f0800000000000000
+      internalID: -1046281083607488669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piper light attack animation 16x16-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1628
+        y: 8
+        width: 106
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09680e7eb3392a2c0800000000000000
+      internalID: -4421809998621800816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piper light attack animation 16x16-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1951
+        y: 8
+        width: 103
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15a9b5965f5f21320800000000000000
+      internalID: 2527352775291673169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piper light attack animation 16x16-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 2141
+        y: 111
+        width: 89
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e43afaa27ec2d6ec0800000000000000
+      internalID: -3572149558069714098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piper light attack animation 16x16-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 2271
+        y: 8
+        width: 101
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 382e2133827ff5980800000000000000
+      internalID: -8547841815698283901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piper light attack animation 16x16-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 2518
+        y: 144
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489d7fd32410b4e70800000000000000
+      internalID: 9100368856051341700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piper light attack animation 16x16-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 2591
+        y: 8
+        width: 101
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a0aabc3ffb5ffc70800000000000000
+      internalID: 9007018931557933225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piper light attack animation 16x16-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1431
+        y: 121
+        width: 26
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dffd451ac435beb50800000000000000
+      internalID: 6623479265567760381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piper light attack animation 16x16-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1778
+        y: 121
+        width: 40
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f64e6acff65491750800000000000000
+      internalID: 6276123902999979119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piper light attack animation 16x16-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 2139
+        y: 121
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0ea9a3c58415aca0800000000000000
+      internalID: -6006371963282805238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Piper light attack animation 16x16-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2501
+        y: 111
+        width: 48
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9d77bd0dfe5f620800000000000000
+      internalID: 2807413623049673194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
