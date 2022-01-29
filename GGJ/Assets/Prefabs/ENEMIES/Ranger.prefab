@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy_type: 2
-  weight: 10
+  weight: 15
   stats:
     Damage: 3
     Health: 20
@@ -223,7 +223,7 @@ MonoBehaviour:
     m_Bits: 128
   AttackRange: 40
   attackEffect: {fileID: 0}
-  CooldDownShot: 1
+  CooldDownShot: 5
   Shots: {fileID: 6115088150409343544}
   firePoint: {fileID: 5859745229432965502}
 --- !u!114 &6115088150409343544
