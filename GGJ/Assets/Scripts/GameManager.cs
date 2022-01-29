@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -44,7 +45,8 @@ public class GameManager : Singleton<GameManager>
 
     private void RestartGame()
     {
-        // Load scene.
+        ContinueGame();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //Maybe this will work
     }
 
     public void OnContinue()

@@ -50,7 +50,7 @@ public class VitalityUpgrade : Upgrade
         upgrade_color_dark = Color.black;
         is_unique = false;
     }
-    public void DoUpgrade()
+    public override void DoUpgrade()
     {
         ZenaCombat zena = (ZenaCombat)(upgrade_character);
         zena.UpgradeVitality(10);
@@ -67,7 +67,7 @@ public class AgilityUpgrade : Upgrade
         upgrade_color_dark = Color.black;
         is_unique = false;
     }
-    public void DoUpgrade()
+    public override void DoUpgrade()
     {
         ZenaCombat zena = (ZenaCombat)(upgrade_character);
         zena.UpgradeAgility(0.1f);
@@ -84,7 +84,7 @@ public class StunUpgrade : Upgrade
         upgrade_color_dark = Color.black;
         is_unique = true;
     }
-    public void DoUpgrade()
+    public override void DoUpgrade()
     {
         // Update Player.
     }
@@ -100,7 +100,7 @@ public class SlowUpgrade : Upgrade
         upgrade_color_dark = Color.black;
         is_unique = true;
     }
-    public void DoUpgrade()
+    public override void DoUpgrade()
     {
         // Update Player.
     }
@@ -116,7 +116,7 @@ public class ArmsUpgrade : Upgrade
         upgrade_color_dark = Color.black;
         is_unique = false;
     }
-    public void DoUpgrade()
+    public override void DoUpgrade()
     {
         PiperCombat piper = (PiperCombat)(upgrade_character);
         piper.UpgradeArms(3);
@@ -133,7 +133,7 @@ public class PersistenceUpgrade : Upgrade
         upgrade_color_dark = Color.black;
         is_unique = false;
     }
-    public void DoUpgrade()
+    public override void DoUpgrade()
     {
         PiperCombat piper = (PiperCombat)(upgrade_character);
         piper.UpgradePersistence(3);
@@ -150,7 +150,7 @@ public class SwiftnessUpgrade : Upgrade
         upgrade_color_dark = Color.black;
         is_unique = false;
     }
-    public void DoUpgrade()
+    public override void DoUpgrade()
     {
         PiperCombat piper = (PiperCombat)(upgrade_character);
         piper.UpgradeSwiftness(0.1f);
@@ -167,7 +167,7 @@ public class BleedUpgrade : Upgrade
         upgrade_color_dark = Color.black;
         is_unique = true;
     }
-    public void DoUpgrade()
+    public override void DoUpgrade()
     {
         // Update Player.
     }
@@ -183,7 +183,7 @@ public class KnockbackUpgrade : Upgrade
         upgrade_color_dark = Color.black;
         is_unique = true;
     }
-    public void DoUpgrade()
+    public override void DoUpgrade()
     {
         // Update Player.
     }
