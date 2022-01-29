@@ -33,9 +33,10 @@ public class StrengthUpgrade : Upgrade
         upgrade_color_dark = Color.black;
         is_unique = false;
     }
-    public void DoUpgrade()
+    public override void DoUpgrade()
     {
-        // Update Player.
+        ZenaCombat zena = (ZenaCombat)(upgrade_character);
+        zena.UpgradeStrength(3);
     }
 }
 
@@ -51,7 +52,8 @@ public class VitalityUpgrade : Upgrade
     }
     public void DoUpgrade()
     {
-        // Update Player.
+        ZenaCombat zena = (ZenaCombat)(upgrade_character);
+        zena.UpgradeVitality(10);
     }
 }
 
@@ -67,7 +69,8 @@ public class AgilityUpgrade : Upgrade
     }
     public void DoUpgrade()
     {
-        // Update Player.
+        ZenaCombat zena = (ZenaCombat)(upgrade_character);
+        zena.UpgradeAgility(0.1f);
     }
 }
 
@@ -115,7 +118,8 @@ public class ArmsUpgrade : Upgrade
     }
     public void DoUpgrade()
     {
-        // Update Player.
+        PiperCombat piper = (PiperCombat)(upgrade_character);
+        piper.UpgradeArms(3);
     }
 }
 
@@ -131,7 +135,8 @@ public class PersistenceUpgrade : Upgrade
     }
     public void DoUpgrade()
     {
-        // Update Player.
+        PiperCombat piper = (PiperCombat)(upgrade_character);
+        piper.UpgradePersistence(3);
     }
 }
 
@@ -147,7 +152,8 @@ public class SwiftnessUpgrade : Upgrade
     }
     public void DoUpgrade()
     {
-        // Update Player.
+        PiperCombat piper = (PiperCombat)(upgrade_character);
+        piper.UpgradeSwiftness(0.1f);
     }
 }
 

@@ -23,6 +23,11 @@ public class LevelManager : MonoBehaviour
 
     private const float wave_start_animation_length = 3f;
     private const float wave_completed_animation_length = 1.5f;
+
+    //leveling
+    public int currentXP;
+    public int XPtoLevel;
+    public int XPtoLevelIncrement = 0;
     
 
     private void Awake()
@@ -39,6 +44,9 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        currentXP = 0;
+        XPtoLevel = 100;
+
         wave_number = 0;
         Debug.Log("WaveStart_root");
         WaveStart();
@@ -123,7 +131,7 @@ public class LevelManager : MonoBehaviour
     private void ActivateUpgradeScreen()
     {
         state = LevelState.UpgradeScreen;
-        upgrade_manager.Upgrade(1); // TODO: right now only level up once. maybe GameManager.Instance.Player.CalculateLevelUps());
+        upgrade_manager.Upgrade(CalculateLevelsGained()); 
     }
 
     private void StartSpawner()
@@ -137,4 +145,22 @@ public class LevelManager : MonoBehaviour
         spawner.SetLevel(enemy_groups, enemy_weight);
         spawner.StartSpawning();
     }
+
+    public void GainXP(int gained_xp)
+    {
+        currentXP += gained_xp;
+    }
+
+    private int CalculateLevelsGained()
+    {
+        int levels_gained = 0;
+        while (currentXP >= XPtoLevel)
+        {
+            currentXP -= XPtoLevel;
+            XPtoLevel += XPtoLevelIncrement;
+            levels_gained++;
+        }
+        return levels_gained;
+    }
+
 }

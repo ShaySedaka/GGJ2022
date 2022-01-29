@@ -95,7 +95,7 @@ public abstract class Enemy : MonoBehaviour
 
     void Die()
     {
-        
+        GameManager.Instance.levelManager.GainXP(stats.XP);
         Destroy(gameObject);
     }
 }
