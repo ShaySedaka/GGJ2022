@@ -142,6 +142,8 @@ public class ZenaCombat : Hero
     private IEnumerator Dash()
     {
         GameManager.Instance.Player.LockInput = true;
+        _animator.SetBool("IsMoving", false);
+        _animator.SetBool("IsDashing", true);
         float elapsedTime = 0;
         while (elapsedTime < _dashTime)
         {
@@ -151,6 +153,8 @@ public class ZenaCombat : Hero
             yield return null;
         }
 
+        
+        _animator.SetBool("IsDashing", false);
         GameManager.Instance.Player.LockInput = false;
         yield return null;
     }
