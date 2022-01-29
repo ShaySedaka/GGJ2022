@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerGlobalStats : MonoBehaviour
 {
     private Hero _currentHero;
+    private Hero _benchedHero;
 
     [SerializeField]
     private PiperCombat _piper;
@@ -13,6 +14,8 @@ public class PlayerGlobalStats : MonoBehaviour
     private ZenaCombat _zena;
 
     public Hero CurrentHero { get => _currentHero; set => _currentHero = value; }
+
+    public Hero BenchedHero { get => _benchedHero; set => _benchedHero = value; }
     public PiperCombat Piper { get => _piper; set => _piper = value; }
     public ZenaCombat Zena { get => _zena; set => _zena = value; }
 
@@ -20,6 +23,7 @@ public class PlayerGlobalStats : MonoBehaviour
     void Start()
     {
         _currentHero = Zena;
+        BenchedHero = Piper;
     }
 
     // Update is called once per frame
