@@ -4,18 +4,17 @@ using UnityEngine;
 public class Caltrops : MonoBehaviour
 {
     private SpriteRenderer rend;
+    private float elapsedTime = 0;
 
     private void Start()
     {
         rend = GetComponent<SpriteRenderer>();
         StartCoroutine("fadeOut");
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void Update()
     {
-        if (collision.gameObject.layer == 8)
-        {
-            
-        }
+        elapsedTime += Time.deltaTime;
     }
 
     IEnumerator fadeOut()
@@ -30,6 +29,18 @@ public class Caltrops : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
         Destroy(gameObject);
+    }
+
+
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        Debug.Log("plspls");
+        if (other.gameObject.tag == "Enemy")
+        {
+            
+            other.gameObject.GetComponent<Enemy>().GetAttacked(5);
+        }
     }
 
 

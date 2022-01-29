@@ -50,29 +50,13 @@ public abstract class Enemy : MonoBehaviour
     protected EnemyState state;
 
     protected Animator anim;
-    bool facingR = true;
+    protected bool facingR = true;
     
     void Start()
     {
         state = EnemyState.Idle;
         GetComponent<AIDestinationSetter>().target = GameManager.Instance.Player.transform;
         anim = GetComponent<Animator>();
-    }
-
-    void Update()
-    {
-        // State machine:
-        switch (state)
-        {
-            case EnemyState.Walking:
-                break;
-            case EnemyState.Attacking:
-                AttackUpdate();
-                break;
-            case EnemyState.Dying:
-                DyingUpdate();
-                break;
-        }
     }
 
     protected abstract void AttackUpdate();
@@ -101,13 +85,5 @@ public abstract class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    protected void Flip()
-    {
-        if ((facingR && GameManager.Instance.Player.transform.position.x >= transform.position.x) 
-            || (!facingR && GameManager.Instance.Player.transform.position.x < transform.position.x))
-        {
-            facingR = !facingR;
-            transform.Rotate(new Vector3(0,180,0));
-        }
-    }
+    
 }

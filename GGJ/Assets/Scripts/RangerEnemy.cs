@@ -21,10 +21,6 @@ public class RangerEnemy : Enemy
 
             AttackUpdate();
         }
-        if (GameManager.Instance.Player.transform.position.x >= transform.position.x)
-        {
-            Flip();
-        }
     }
     protected override void AttackUpdate()
     {

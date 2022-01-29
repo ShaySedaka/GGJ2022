@@ -19,6 +19,16 @@ public class ChunkLordFatneek : Enemy
         {
             AttackUpdate();
         }
+        Flip();
+    }
+    protected void Flip()
+    {
+        if ((facingR && GameManager.Instance.Player.transform.position.x < transform.position.x)
+            || (!facingR && GameManager.Instance.Player.transform.position.x >= transform.position.x))
+        {
+            facingR = !facingR;
+            transform.Rotate(new Vector3(0, 180, 0));
+        }
     }
     protected override void AttackUpdate()
     {
@@ -27,12 +37,19 @@ public class ChunkLordFatneek : Enemy
             return;
         }
         lastStrike = Time.time;
-        Instantiate(attackEffect, playerFound[0].gameObject.transform.position, new Quaternion());
+        anim.SetTrigger("Attack");
+        StartCoroutine("DealDmg");
+    }
+    IEnumerator DealDmg()
+    {
+        yield return new WaitForSeconds(1f);
+        GameObject go = Instantiate(attackEffect,transform.position, new Quaternion());
+        go.GetComponent<AoeAttack>().SetDmg(stats.Damage);
     }
 
     protected override void DyingUpdate()
     {
-        // death animation + destroy?
+        
     }
 
     private void OnDrawGizmosSelected()

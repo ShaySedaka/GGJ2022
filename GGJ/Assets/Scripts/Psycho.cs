@@ -18,13 +18,30 @@ public class Psycho : Enemy
         {
             AttackUpdate();
         }
+        Flip();
     }
     protected override void AttackUpdate()
     {
-        Instantiate(attackEffect, transform.position, new Quaternion());
-        Destroy(this.gameObject);
+        anim.SetTrigger("Attack");
+        Destroy(gameObject, 1f);
+    }
+    IEnumerator DealDmg()
+    {
+        yield return new WaitForSeconds(0.8f);
+        GameObject go = Instantiate(attackEffect, transform.position, new Quaternion());
+        go.GetComponent<FadeIn>().SetDmg(stats.Damage);
+        
     }
 
+    protected void Flip()
+    {
+        if ((facingR && GameManager.Instance.Player.transform.position.x >= transform.position.x)
+            || (!facingR && GameManager.Instance.Player.transform.position.x < transform.position.x))
+        {
+            facingR = !facingR;
+            transform.Rotate(new Vector3(0, 180, 0));
+        }
+    }
     protected override void DyingUpdate()
     {
         // death animation + destroy?
