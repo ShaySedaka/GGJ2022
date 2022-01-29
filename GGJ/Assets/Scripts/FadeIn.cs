@@ -4,6 +4,7 @@ using UnityEngine;
 public class FadeIn : MonoBehaviour
 {
     SpriteRenderer rendy;
+    int dmg;
     private void Start()
     {
         rendy = GetComponent<SpriteRenderer>();
@@ -12,17 +13,20 @@ public class FadeIn : MonoBehaviour
         rendy.material.color = c;
         StartCoroutine("Fade");
     }
-
+    public void SetDmg(int amount)
+    {
+        dmg = amount;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 7)
         {
-            //damage player
+            GameManager.Instance.Player.PlayerGlobalStatsRef.CurrentHero.TakeDamage(dmg);
         }
     }
 
 
-    IEnumerator Fade()
+   /* IEnumerator Fade()
     {
         for (float i = 0.05f; i <= 1; i += 0.05f)
         {
@@ -32,5 +36,5 @@ public class FadeIn : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         Destroy(gameObject);
-    }
+    }*/
 }
