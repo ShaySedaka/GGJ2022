@@ -38,6 +38,10 @@ public class UpgradeManager : MonoBehaviour
         {
             OfferUpgrades();
         }
+        else
+        {
+            is_upgrading = false;
+        }
     }
 
     public void CreateBaseUpgrades()

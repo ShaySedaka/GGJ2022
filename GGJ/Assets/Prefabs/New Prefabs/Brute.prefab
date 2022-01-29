@@ -212,11 +212,10 @@ MonoBehaviour:
   enemy_type: 0
   weight: 5
   stats:
-    Speed: 0
     Damage: 0
-    Range: 0
-    AttackSpeed: 0
     Health: 0
+    XP: 200
+  PopMaster: {fileID: 0}
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 128
