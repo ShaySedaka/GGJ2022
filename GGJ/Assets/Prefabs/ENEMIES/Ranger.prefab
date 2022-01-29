@@ -214,7 +214,7 @@ MonoBehaviour:
   enemy_type: 2
   weight: 10
   stats:
-    Damage: 20
+    Damage: 3
     Health: 20
     XP: 15
   PopMaster: {fileID: 6454847041126369067, guid: ffdf2c03d0d7a6e45bd67e76c6a9dd8e, type: 3}
