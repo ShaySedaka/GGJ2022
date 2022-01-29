@@ -31,14 +31,16 @@ public class Caltrops : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerStay2D(Collider2D collider)
-    {
 
-            if(collider.gameObject.layer == 8)
-            {
-                Debug.Log("plspls");
-                collider.gameObject.GetComponent<Enemy>().GetAttacked(5);
-            }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        Debug.Log("plspls");
+        if (other.gameObject.tag == "Enemy")
+        {
+            
+            other.gameObject.GetComponent<Enemy>().GetAttacked(5);
+        }
     }
 
 
