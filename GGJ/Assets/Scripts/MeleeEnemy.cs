@@ -1,6 +1,5 @@
-using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine;
 
 public class MeleeEnemy : Enemy
 {
@@ -15,10 +14,14 @@ public class MeleeEnemy : Enemy
     private void Update()
     {
         playerFound = Physics2D.OverlapCircleAll(transform.position, AttackRange, PlayerLayer);
-        if (playerFound.Length > 0)
+        if (playerFound != null)
         {
-            AttackUpdate();
+            if (playerFound.Length > 0)
+            {
+                AttackUpdate();
+            }
         }
+
         Flip();
 
     }
@@ -31,6 +34,15 @@ public class MeleeEnemy : Enemy
         lastStrike = Time.time;
         anim.SetTrigger("Attack");
         StartCoroutine("DealDmg");
+    }
+    protected void Flip()
+    {
+        if ((facingR && GameManager.Instance.Player.transform.position.x < transform.position.x)
+            || (!facingR && GameManager.Instance.Player.transform.position.x >= transform.position.x))
+        {
+            facingR = !facingR;
+            transform.Rotate(new Vector3(0, 180, 0));
+        }
     }
     IEnumerator DealDmg()
     {
