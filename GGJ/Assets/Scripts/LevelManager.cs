@@ -28,6 +28,10 @@ public class LevelManager : MonoBehaviour
     public int currentXP;
     public int XPtoLevel;
     public int XPtoLevelIncrement = 0;
+
+    //waves
+    public int base_wave_weight = 30;
+    public int weight_increment_perwave = 10;
     
 
     private void Awake()
@@ -141,11 +145,9 @@ public class LevelManager : MonoBehaviour
     private void StartSpawner()
     {
         // Set waves and level weight here.
-        int enemy_weight = 50;
-        List<EnemyGroup> enemy_groups = new List<EnemyGroup>();
-        enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Brute }));
-        enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Ranger, EnemyType.Ranger }));
-        enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Psycho, EnemyType.Brute }));
+        //Debug.Log(wave_number);
+        int enemy_weight = base_wave_weight + (wave_number - 1) * weight_increment_perwave;
+        List<EnemyGroup> enemy_groups = WaveMaker.GetWave(wave_number);
         spawner.SetLevel(enemy_groups, enemy_weight);
         spawner.StartSpawning();
     }
@@ -167,4 +169,68 @@ public class LevelManager : MonoBehaviour
         return levels_gained;
     }
 
+}
+
+public static class WaveMaker
+{
+    public static List<EnemyGroup> GetWave(int wave_number)
+    {
+        List<EnemyGroup> enemy_groups = new List<EnemyGroup>();
+        switch (wave_number)
+        {
+            case 1:
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Brute, EnemyType.Brute, EnemyType.Brute, EnemyType.Brute }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Ranger, EnemyType.Ranger }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Parasite, EnemyType.Parasite, EnemyType.Parasite, EnemyType.Parasite, EnemyType.Parasite }));
+                break;
+            case 2:
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Brute, EnemyType.Brute, EnemyType.Brute, EnemyType.Brute }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Ranger, EnemyType.Ranger }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Ranger, EnemyType.Ranger, EnemyType.Parasite, EnemyType.Parasite }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Parasite, EnemyType.Parasite, EnemyType.Parasite, EnemyType.Parasite, EnemyType.Parasite }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Brute, EnemyType.Brute, EnemyType.Brute, EnemyType.Psycho }));
+                break;
+            case 3:
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Brute, EnemyType.Brute, EnemyType.Brute, EnemyType.Brute }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Ranger, EnemyType.Ranger }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Ranger, EnemyType.Ranger, EnemyType.Parasite, EnemyType.Parasite }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Parasite, EnemyType.Parasite, EnemyType.Parasite, EnemyType.Parasite, EnemyType.Parasite }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Brute, EnemyType.Brute, EnemyType.Brute, EnemyType.Psycho }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.ChunkyBoi }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Ranger, EnemyType.Psycho, EnemyType.Psycho, EnemyType.Psycho }));
+                break;
+            default:
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Brute, EnemyType.Brute, EnemyType.Brute, EnemyType.Brute, EnemyType.Brute }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Ranger, EnemyType.Ranger, EnemyType.Ranger }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Ranger, EnemyType.Ranger, EnemyType.Parasite, EnemyType.Parasite, EnemyType.Psycho }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Parasite, EnemyType.Parasite, EnemyType.Parasite, EnemyType.Parasite, EnemyType.Parasite, EnemyType.Parasite, EnemyType.Parasite }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Brute, EnemyType.Brute, EnemyType.Brute, EnemyType.ChunkyBoi }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.ChunkyBoi, EnemyType.Ranger, EnemyType.Ranger }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Ranger, EnemyType.Psycho, EnemyType.Psycho, EnemyType.Psycho }));
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.ChunkyBoi, EnemyType.ChunkyBoi, EnemyType.Brute, EnemyType.Brute }));
+                break;
+        }
+        return enemy_groups;
+    }
+
+    /*public static List<EnemyGroup> GetWaveTest(int wave_number)
+    {
+        List<EnemyGroup> enemy_groups = new List<EnemyGroup>();
+        switch (wave_number)
+        {
+            case 1:
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Brute }));
+                break;
+            case 2:
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Ranger }));
+                break;
+            case 3:
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Parasite, EnemyType.Parasite }));
+                break;
+            default:
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.ChunkyBoi }));
+                break;
+        }
+        return enemy_groups;
+    }*/
 }
