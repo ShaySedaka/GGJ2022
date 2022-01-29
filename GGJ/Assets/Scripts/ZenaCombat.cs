@@ -37,6 +37,16 @@ public class ZenaCombat : Hero
     protected override void Update()
     {
         base.Update();
+        if(GameManager.Instance.Player.ControllerRef.IsMoving)
+        {
+            _animator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            _animator.SetBool("IsMoving", false);
+        }
+
+
         if (!GameManager.Instance.Player.LockInput)
         {
             if (Input.GetMouseButtonDown(0))
@@ -72,6 +82,7 @@ public class ZenaCombat : Hero
     {
         // Play Animation
         GameManager.Instance.Player.LockInput = true;
+        _animator.SetBool("LightAttack", true);
         yield return new WaitForSeconds(_lightAttackDelay);  //Animation Duration = delay      
 
         Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_lightAttackPoint.position, _lightAttackRange, enemyLayers);
@@ -84,6 +95,7 @@ public class ZenaCombat : Hero
             }
         }
         Debug.Log("LightSwing");
+        _animator.SetBool("LightAttack", false);
         GameManager.Instance.Player.LockInput = false;
     }
 
