@@ -4,7 +4,7 @@ using UnityEngine;
 public class PiperCombat : Hero
 {
     private float _lightAttackDelay = 0.6f;
-    private float _heavyAttackDelay = 1;
+    private float _heavyAttackDelay = 1.3f;
 
     public ObjectPool LApool;
     public ObjectPool HApool;
@@ -40,6 +40,7 @@ public class PiperCombat : Hero
             }
             if (Input.GetMouseButtonUp(1))
             {
+                
                 if (_heavyShotChargeTimer >= _heavyShotChargeTime)
                 {
                     HeavyAttack();
@@ -106,6 +107,7 @@ public class PiperCombat : Hero
     {
         // Play Animation
         GameManager.Instance.Player.LockInput = true;
+        _animator.SetBool("HeavyAttack", true);
         yield return new WaitForSeconds(_heavyAttackDelay);  //Animation Duration = delay      
 
         GameObject bullet = HApool.GetPooledObjects();
@@ -120,6 +122,7 @@ public class PiperCombat : Hero
         }
 
         Debug.Log("HeavyShot");
+        _animator.SetBool("HeavyAttack", false);
         GameManager.Instance.Player.LockInput = false;
     }
 
