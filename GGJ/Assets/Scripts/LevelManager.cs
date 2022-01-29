@@ -146,7 +146,7 @@ public class LevelManager : MonoBehaviour
         spawner.StartSpawning();
     }
 
-    public void GetXP(int gained_xp)
+    public void GainXP(int gained_xp)
     {
         currentXP += gained_xp;
     }

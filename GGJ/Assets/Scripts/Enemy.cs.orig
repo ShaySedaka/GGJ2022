@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
 
 // List here new enemies.
 public enum EnemyType
@@ -54,7 +53,6 @@ public abstract class Enemy : MonoBehaviour
     void Start()
     {
         state = EnemyState.Idle;
-        GetComponent<AIDestinationSetter>().target = GameManager.Instance.Player.transform;
     }
 
     void Update()
@@ -95,7 +93,11 @@ public abstract class Enemy : MonoBehaviour
 
     void Die()
     {
-        GameManager.Instance.levelManager.GainXP(stats.XP);
+<<<<<<< HEAD
         Destroy(gameObject);
+=======
+        GameManager.Instance.levelManager.GainXP(stats.XP);
+        state = EnemyState.Dying;
+>>>>>>> b236e63 (Added XP stat to EnemyStats. XP added to player via LevelManager upon enemy death.)
     }
 }
