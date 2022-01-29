@@ -1,5 +1,6 @@
 using UnityEngine;
-
+using System.Collections;
+using System.Collections.Generic;
 
 public class MeleeEnemy : Enemy
 {
@@ -18,6 +19,8 @@ public class MeleeEnemy : Enemy
         {
             AttackUpdate();
         }
+        Flip();
+
     }
     protected override void AttackUpdate()
     {
@@ -26,9 +29,14 @@ public class MeleeEnemy : Enemy
             return;
         }
         lastStrike = Time.time;
-        Instantiate(attackEffect, playerFound[0].gameObject.transform.position, new Quaternion());
+        anim.SetTrigger("Attack");
+        StartCoroutine("DealDmg");
     }
-
+    IEnumerator DealDmg()
+    {
+        yield return new WaitForSeconds(1.3f);
+        GameManager.Instance.Player.PlayerGlobalStatsRef.CurrentHero.TakeDamage(stats.Damage);
+    }
     protected override void DyingUpdate()
     {
         Debug.Log("I DIED");
