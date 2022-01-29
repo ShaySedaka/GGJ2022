@@ -256,19 +256,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lightAttackStaminaCost: 10
-  _lightAttackDamage: 0
+  _lightAttackDamage: 5
   _attackSpeedBonus: 0
-  _heavyAttackStaminaCost: 0
-  _heavyAttackDamage: 0
-  HeavyAttackCooldown: 0
+  _heavyAttackStaminaCost: 35
+  _heavyAttackDamage: 20
+  HeavyAttackCooldown: 3.5
   _utilityStaminaCost: 50
-  UtilityCooldown: 1
+  UtilityCooldown: 7
   _animator: {fileID: 699680998834296227}
   MaxHeroStamina: 100
-  CurrentHeroStamina: 50
+  CurrentHeroStamina: 100
   HeroStaminaRegenerate: 5
-  MaxHeroHealth: 100
-  CurrentHeroHealth: 50
+  MaxHeroHealth: 150
+  CurrentHeroHealth: 150
   HeroHealthRegenerate: 1
   HeroMovementSpeed: 0
   HeroPortrait: {fileID: 21300000, guid: 799d90ead9b132645b77d772fe187406, type: 3}
@@ -662,34 +662,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lightAttackStaminaCost: 10
-  _lightAttackDamage: 11
+  _lightAttackDamage: 10
   _attackSpeedBonus: 0
-  _heavyAttackStaminaCost: 20
-  _heavyAttackDamage: 20
+  _heavyAttackStaminaCost: 30
+  _heavyAttackDamage: 25
   HeavyAttackCooldown: 2
   _utilityStaminaCost: 25
   UtilityCooldown: 1
   _animator: {fileID: 699680999297130430}
   MaxHeroStamina: 100
-  CurrentHeroStamina: 50
+  CurrentHeroStamina: 100
   HeroStaminaRegenerate: 5
-  MaxHeroHealth: 100
-  CurrentHeroHealth: 20
-  HeroHealthRegenerate: 5
-  HeroMovementSpeed: 0
+  MaxHeroHealth: 200
+  CurrentHeroHealth: 200
+  HeroHealthRegenerate: 2.5
+  HeroMovementSpeed: 5
   HeroPortrait: {fileID: 21300000, guid: 1a8a1a0cbb46b374bb7370d858387e28, type: 3}
   Name: Zena
   _rigidBody: {fileID: 699680998292893472}
   _lightAttackPoint: {fileID: 699680999206961509}
   _heavyAttackPoint: {fileID: 91787563391651614}
-  _lightAttackRange: 0.5
-  _heavyAttackRange: 0.5
+  _lightAttackRange: 5
+  _heavyAttackRange: 5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
   _dashSpeed: 150
   _dashTime: 0.1
-  _attackSpeedBonusForTesting: 1
 --- !u!61 &699680999297130431
 BoxCollider2D:
   m_ObjectHideFlags: 0

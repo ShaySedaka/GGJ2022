@@ -28,6 +28,15 @@ public class PiperCombat : Hero
         if (!GameManager.Instance.Player.LockInput)
         {
             base.Update();
+            if (GameManager.Instance.Player.ControllerRef.IsMoving)
+            {
+                _animator.SetBool("IsMoving", true);
+            }
+            else
+            {
+                _animator.SetBool("IsMoving", false);
+            }
+
             if (Input.GetMouseButtonDown(0))
             {
                 LightAttack();

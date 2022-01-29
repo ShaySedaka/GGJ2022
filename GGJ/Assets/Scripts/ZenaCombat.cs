@@ -30,10 +30,6 @@ public class ZenaCombat : Hero
     private float _lightAttackDelay = 0.7f;
     private float _heavyAttackDelay = 1.3f;
 
-
-    [SerializeField]
-    private float _attackSpeedBonusForTesting;
-
     protected override void Update()
     {
         base.Update();
