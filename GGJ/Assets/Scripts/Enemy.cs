@@ -51,6 +51,7 @@ public abstract class Enemy : MonoBehaviour
     public EnemyStats stats;
     
     protected EnemyState state;
+<<<<<<< Updated upstream
     
     void Start()
     {
@@ -71,6 +72,16 @@ public abstract class Enemy : MonoBehaviour
                 DyingUpdate();
                 break;
         }
+=======
+    protected Animator anim;
+    bool facingR = true;
+
+    void Start()
+    {
+        state = EnemyState.Idle;
+        GetComponent<AIDestinationSetter>().target = GameManager.Instance.Player.transform;
+        anim = GetComponent<Animator>();
+>>>>>>> Stashed changes
     }
 
     protected abstract void AttackUpdate();
@@ -85,8 +96,26 @@ public abstract class Enemy : MonoBehaviour
         }
     }
     
+<<<<<<< Updated upstream
     void Die()
     {
         state = EnemyState.Dying;
+=======
+    protected void Flip()
+    {
+        if ((facingR && GameManager.Instance.Player.transform.position.x >= transform.position.x) 
+            || (!facingR && GameManager.Instance.Player.transform.position.x < transform.position.x))
+        {
+            facingR = !facingR;
+            transform.Rotate(new Vector3(0,180,0));
+        }
+    }
+
+
+    void Die()
+    {
+        //GameManager.Instance.levelManager.GainXP(stats.XP);
+        Destroy(gameObject);
+>>>>>>> Stashed changes
     }
 }

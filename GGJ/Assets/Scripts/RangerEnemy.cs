@@ -26,6 +26,10 @@ public class RangerEnemy : Enemy
 
             AttackUpdate();
         }
+        if (GameManager.Instance.Player.transform.position.x >= transform.position.x)
+        {
+            Flip();
+        }
     }
     protected override void AttackUpdate()
     {
@@ -35,22 +39,25 @@ public class RangerEnemy : Enemy
         }
         lastShot = Time.time;
 
+        anim.SetTrigger("Attack");
         GameObject bullet = Shots.GetPooledObjects();
         if (bullet != null)
         {
-            Debug.Log("found");
+            //Debug.Log("found");
             bullet.transform.position = firePoint.position;
             Bullet shot = bullet.GetComponent<Bullet>();
             bullet.SetActive(true);
-
             shot.direction = firePoint.right;
         }
     }
 
+
     protected override void DyingUpdate()
     {
-        
+
     }
+
+
 
     private void OnDrawGizmosSelected()
     {
