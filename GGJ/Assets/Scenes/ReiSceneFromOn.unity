@@ -158,7 +158,7 @@ Transform:
   - {fileID: 1304649567}
   - {fileID: 1705816752}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &162000891
 MonoBehaviour:
@@ -367,7 +367,7 @@ Transform:
   m_LocalScale: {x: 212.8046, y: 90.87113, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -639,7 +639,7 @@ Transform:
   m_LocalScale: {x: 31.38102, y: 10.72, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &864894176
 GameObject:
@@ -817,7 +817,7 @@ Transform:
   m_Children:
   - {fileID: 1595185769}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1009547851 stripped
 MonoBehaviour:
@@ -1050,7 +1050,7 @@ Transform:
   m_LocalScale: {x: 9.9, y: 10.72, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1304649566
 GameObject:
@@ -1282,7 +1282,7 @@ Transform:
   m_LocalScale: {x: 9.9, y: 10.72, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1384758899 stripped
 MonoBehaviour:
@@ -1359,7 +1359,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1543748805 stripped
 MonoBehaviour:
@@ -1769,7 +1769,7 @@ Transform:
   m_LocalScale: {x: 37.6992, y: 10.72, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1730153173
 PrefabInstance:
@@ -2268,7 +2268,7 @@ Transform:
   m_LocalScale: {x: 212.8046, y: 29.280575, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1874580747
 GameObject:
@@ -2304,7 +2304,7 @@ MonoBehaviour:
   RangerPrefab: {fileID: 328681983668544364, guid: bc7eabb1c43f811409b5fd0ce633e01f, type: 3}
   DronePrefab: {fileID: 812974299408457972, guid: bc7eabb1c43f811409b5fd0ce633e01f, type: 3}
   PsychoPrefab: {fileID: 2477456556440555765, guid: f9e83b777db8a1742ac48fb1213770d3, type: 3}
-  BigMamaPrefab: {fileID: 812974299408457972, guid: bc7eabb1c43f811409b5fd0ce633e01f, type: 3}
+  ChunkyBoyPrefab: {fileID: 0}
   spawn_positions:
   - {x: 100, y: 25, z: 0}
   - {x: 100, y: -50, z: 0}
@@ -2797,7 +2797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5757522704147588226, guid: fb0316f497c1abb4ca02ae6e918f0f35, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5757522704147588226, guid: fb0316f497c1abb4ca02ae6e918f0f35, type: 3}
       propertyPath: m_AnchorMax.x

@@ -21,6 +21,7 @@ public class EnemyStats
 {
     public int Damage;
     public int Health;
+    public int XP;
 }
 
 
@@ -94,6 +95,7 @@ public abstract class Enemy : MonoBehaviour
 
     void Die()
     {
+        
         Destroy(gameObject);
     }
 }
