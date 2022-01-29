@@ -37,8 +37,8 @@ public class MeleeEnemy : Enemy
     }
     protected void Flip()
     {
-        if ((facingR && GameManager.Instance.Player.transform.position.x < transform.position.x)
-            || (!facingR && GameManager.Instance.Player.transform.position.x >= transform.position.x))
+        if ((facingR && GameManager.Instance.Player.transform.position.x > transform.position.x)
+            || (!facingR && GameManager.Instance.Player.transform.position.x <= transform.position.x))
         {
             facingR = !facingR;
             transform.Rotate(new Vector3(0, 180, 0));
