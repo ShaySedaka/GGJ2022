@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 // List here new enemies.
 public enum EnemyType
@@ -52,6 +53,7 @@ public abstract class Enemy : MonoBehaviour
     void Start()
     {
         state = EnemyState.Idle;
+        GetComponent<AIDestinationSetter>().target = GameManager.Instance.Player.transform;
     }
 
     void Update()

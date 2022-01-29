@@ -12,12 +12,7 @@ public class RangerEnemy : Enemy
     public ObjectPool Shots;
     [SerializeField]
     Transform firePoint;
-    LineRenderer liner;
 
-    private void Start()
-    {
-        liner = GetComponent<LineRenderer>();
-    }
     private void Update()
     {
         playerFound = Physics2D.OverlapCircleAll(transform.position, AttackRange, PlayerLayer);

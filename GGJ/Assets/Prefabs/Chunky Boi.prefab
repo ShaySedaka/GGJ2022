@@ -215,7 +215,7 @@ MonoBehaviour:
   stats:
     Damage: 15
     Health: 50
-  PopMaster: {fileID: 0}
+  PopMaster: {fileID: 6454847041126369067, guid: ffdf2c03d0d7a6e45bd67e76c6a9dd8e, type: 3}
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 128

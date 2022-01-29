@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AimToMouse: 0
-  Target: {fileID: 0}
 --- !u!1 &990530138
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +143,7 @@ GameObject:
   - component: {fileID: 4190129874021762142}
   - component: {fileID: 596517375309440214}
   - component: {fileID: 6353111215412489055}
+  - component: {fileID: 2844051114931257935}
   m_Layer: 8
   m_Name: Ranger
   m_TagString: Untagged
@@ -366,3 +366,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 2476924014765391538, guid: 5c2029ae93387864b86174466aa8be32, type: 3}
+--- !u!114 &2844051114931257935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4190129874021762139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c985ef3de0cc4cf41af3afae31f155e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashDuration: 0.09

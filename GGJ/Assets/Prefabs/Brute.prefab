@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4292317499500024587}
   - component: {fileID: 4292317499500024628}
   - component: {fileID: 229090317}
+  - component: {fileID: 1060548839942752975}
   m_Layer: 8
   m_Name: Brute
   m_TagString: Untagged
@@ -214,9 +215,23 @@ MonoBehaviour:
   stats:
     Damage: 8
     Health: 25
+  PopMaster: {fileID: 6454847041126369067, guid: ffdf2c03d0d7a6e45bd67e76c6a9dd8e, type: 3}
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 128
   AttackRange: 9
   attackEffect: {fileID: 3521843429217239121, guid: 82d29ea247f3c9d4c8bc92a90c39af4b, type: 3}
   CoolDownMelee: 3
+--- !u!114 &1060548839942752975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4292317499500024625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c985ef3de0cc4cf41af3afae31f155e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashDuration: 0.09

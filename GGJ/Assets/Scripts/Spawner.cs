@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     public Enemy RangerPrefab;
     public Enemy DronePrefab;
     public Enemy PsychoPrefab;
-    public Enemy BigMamaPrefab;
+    public Enemy ChunkyBoyPrefab;
 
     private List<EnemyGroup> enemy_groups_to_spawn;
     private List<Enemy> current_enemies = new List<Enemy>();
@@ -105,22 +105,22 @@ public class Spawner : MonoBehaviour
             {
                 // List here new enemies.
                 case EnemyType.Brute:
-                    enemy = Instantiate(BrutePrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)), Quaternion.identity);
+                    enemy = Instantiate(BrutePrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0), Quaternion.identity);
                     break;
                 case EnemyType.Parasite:
-                    enemy = Instantiate(ParasitePrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)), Quaternion.identity);
+                    enemy = Instantiate(ParasitePrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0), Quaternion.identity);
                     break;
                 case EnemyType.Ranger:
-                    enemy = Instantiate(RangerPrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)), Quaternion.identity);
+                    enemy = Instantiate(RangerPrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0), Quaternion.identity);
                     break;
                 case EnemyType.Drone:
-                    enemy = Instantiate(DronePrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)), Quaternion.identity);
+                    enemy = Instantiate(DronePrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0), Quaternion.identity);
                     break;
                 case EnemyType.Psycho:
-                    enemy = Instantiate(PsychoPrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)), Quaternion.identity);
+                    enemy = Instantiate(PsychoPrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0), Quaternion.identity);
                     break;
-                case EnemyType.BigMama:
-                    enemy = Instantiate(BigMamaPrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)), Quaternion.identity);
+                case EnemyType.ChunkyBoi:
+                    enemy = Instantiate(ChunkyBoyPrefab, position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0), Quaternion.identity);
                     break;
                 default:
                     Debug.LogError(string.Format("Missing prefab for enemy_type {0}", enemy_type));
