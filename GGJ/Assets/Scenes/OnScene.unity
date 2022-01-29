@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseMovementSpeed: 40
+  IsMoving: 0
 --- !u!114 &162000892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +301,63 @@ MonoBehaviour:
   PiperRef: {fileID: 1705816753}
   LockInput: 0
   LockRegen: 0
+--- !u!1001 &265301270
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4292317499500024625, guid: 584d5648e651ef14383a6b110e1fd611, type: 3}
+      propertyPath: m_Name
+      value: Brute
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292317499500024631, guid: 584d5648e651ef14383a6b110e1fd611, type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292317499500024631, guid: 584d5648e651ef14383a6b110e1fd611, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 57.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292317499500024631, guid: 584d5648e651ef14383a6b110e1fd611, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -21.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292317499500024631, guid: 584d5648e651ef14383a6b110e1fd611, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292317499500024631, guid: 584d5648e651ef14383a6b110e1fd611, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292317499500024631, guid: 584d5648e651ef14383a6b110e1fd611, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292317499500024631, guid: 584d5648e651ef14383a6b110e1fd611, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292317499500024631, guid: 584d5648e651ef14383a6b110e1fd611, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292317499500024631, guid: 584d5648e651ef14383a6b110e1fd611, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292317499500024631, guid: 584d5648e651ef14383a6b110e1fd611, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4292317499500024631, guid: 584d5648e651ef14383a6b110e1fd611, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 584d5648e651ef14383a6b110e1fd611, type: 3}
 --- !u!1 &279086180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1796,6 +1854,8 @@ MonoBehaviour:
   CurrentHeroHealth: 0
   HeroHealthRegenerate: 0
   HeroMovementSpeed: 0
+  HeroPortrait: {fileID: 0}
+  Name: 
   _rigidBody: {fileID: 162000893}
   _lightAttackPoint: {fileID: 0}
   _heavyAttackPoint: {fileID: 0}
@@ -2183,6 +2243,8 @@ MonoBehaviour:
   CurrentHeroHealth: 0
   HeroHealthRegenerate: 0
   HeroMovementSpeed: 0
+  HeroPortrait: {fileID: 0}
+  Name: 
   LApool: {fileID: 1705816757}
   HApool: {fileID: 1705816758}
   _firePoint: {fileID: 1991001158}

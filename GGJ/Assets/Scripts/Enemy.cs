@@ -1,7 +1,7 @@
+using Pathfinding;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
 
 // List here new enemies.
 public enum EnemyType
@@ -50,11 +50,15 @@ public abstract class Enemy : MonoBehaviour
     public EnemyStats stats;
     public GameObject PopMaster;
     protected EnemyState state;
+    bool facingR = true;
+    Animator anim;
+
 
     void Start()
     {
         state = EnemyState.Idle;
         GetComponent<AIDestinationSetter>().target = GameManager.Instance.Player.transform;
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -93,9 +97,21 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
+    protected void Flip()
+    {
+        if ((facingR && GameManager.Instance.Player.transform.position.x >= transform.position.x)
+            || (!facingR && GameManager.Instance.Player.transform.position.x < transform.position.x))
+        {
+            facingR = !facingR;
+            transform.Rotate(new Vector3(0, 180, 0));
+        }
+    }
     void Die()
     {
         GameManager.Instance.levelManager.GainXP(stats.XP);
         Destroy(gameObject);
     }
 }
+
+
+
