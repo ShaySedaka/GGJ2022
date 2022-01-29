@@ -21,6 +21,7 @@ public class TopDownMovement : MonoBehaviour
     }
 
     public Rigidbody2D RigidBody { get => _rigidBody; set => _rigidBody = value; }
+    public bool IsMoving = false;
 
     void Start()
     {
@@ -31,7 +32,8 @@ public class TopDownMovement : MonoBehaviour
 
     void Update()
     {
-        if(!GameManager.Instance.Player.LockInput)
+        MovementStatus();
+        if (!GameManager.Instance.Player.LockInput)
         {
             float moveX = Input.GetAxisRaw("Horizontal");
             if( (moveX > 0 && GameManager.Instance.Player.gameObject.transform.localScale.x < 0) ||
@@ -54,6 +56,18 @@ public class TopDownMovement : MonoBehaviour
     private void Move()
     {
         RigidBody.velocity = moveDirection * MovementSpeed;
+    }
+
+    private void MovementStatus()
+    {
+        if (RigidBody.velocity != Vector2.zero)
+        {
+            IsMoving = true;
+        }
+        else
+        {
+            IsMoving = false;
+        }
     }
 
     private void SwitchCharacters()
