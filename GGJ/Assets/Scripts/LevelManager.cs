@@ -81,6 +81,8 @@ public class LevelManager : MonoBehaviour
                 if(!upgrade_manager.is_upgrading)
                 {
                     Debug.Log("WaveStart");
+                    GameManager.Instance.Player.UnfreezePlayer();
+                    Time.timeScale = 1;
                     WaveStart();
                 }
                 break;
@@ -130,6 +132,8 @@ public class LevelManager : MonoBehaviour
 
     private void ActivateUpgradeScreen()
     {
+        GameManager.Instance.Player.FreezePlayer();
+        Time.timeScale = 0;
         state = LevelState.UpgradeScreen;
         upgrade_manager.Upgrade(CalculateLevelsGained()); 
     }
