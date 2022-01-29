@@ -33,7 +33,14 @@ public class ZenaCombat : Hero
     protected override void Update()
     {
         base.Update();
-        if(GameManager.Instance.Player.ControllerRef.IsMoving)
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+                _animator.SetBool("ZenaTrans", true);
+                //_animator.SetBool("ZenaTrans", false);
+        }
+
+        if (GameManager.Instance.Player.ControllerRef.IsMoving)
         {
             _animator.SetBool("IsMoving", true);
         }
