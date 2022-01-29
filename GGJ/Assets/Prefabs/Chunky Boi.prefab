@@ -179,7 +179,7 @@ MonoBehaviour:
   rotationSpeed: 360
   slowdownDistance: 10
   pickNextWaypointDist: 6.13
-  endReachedDistance: 20
+  endReachedDistance: 14
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -211,18 +211,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy_type: 6
-  weight: 0
+  weight: 12
   stats:
-    Damage: 15
-    Health: 50
-    XP: 0
+    Damage: 27
+    Health: 80
+    XP: 25
   PopMaster: {fileID: 6454847041126369067, guid: ffdf2c03d0d7a6e45bd67e76c6a9dd8e, type: 3}
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 128
-  AttackRange: 20
+  AttackRange: 14
   attackEffect: {fileID: 3177063132761106139, guid: 42a84a2ecdc906243868e0e1d6215f55, type: 3}
-  CoolDownMelee: 2
+  CoolDownMelee: 5
 --- !u!114 &193191478
 MonoBehaviour:
   m_ObjectHideFlags: 0

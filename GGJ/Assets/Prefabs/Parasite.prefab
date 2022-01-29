@@ -212,18 +212,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy_type: 0
-  weight: 0
+  weight: 3
   stats:
     Damage: 5
     Health: 10
-    XP: 0
+    XP: 5
   PopMaster: {fileID: 6454847041126369067, guid: ffdf2c03d0d7a6e45bd67e76c6a9dd8e, type: 3}
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 128
   AttackRange: 7
   attackEffect: {fileID: 3521843429217239121, guid: 82d29ea247f3c9d4c8bc92a90c39af4b, type: 3}
-  CoolDownMelee: 3
+  CoolDownMelee: 1
 --- !u!114 &7504698716575218626
 MonoBehaviour:
   m_ObjectHideFlags: 0
