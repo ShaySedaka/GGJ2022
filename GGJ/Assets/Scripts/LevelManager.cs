@@ -145,12 +145,9 @@ public class LevelManager : MonoBehaviour
     private void StartSpawner()
     {
         // Set waves and level weight here.
+        //Debug.Log(wave_number);
         int enemy_weight = base_wave_weight + (wave_number - 1) * weight_increment_perwave;
         List<EnemyGroup> enemy_groups = WaveMaker.GetWave(wave_number);
-        /*List<EnemyGroup> enemy_groups = new List<EnemyGroup>();
-        enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Brute }));
-        enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Ranger, EnemyType.Ranger }));
-        enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Psycho, EnemyType.Brute }));*/
         spawner.SetLevel(enemy_groups, enemy_weight);
         spawner.StartSpawning();
     }
@@ -215,4 +212,25 @@ public static class WaveMaker
         }
         return enemy_groups;
     }
+
+    /*public static List<EnemyGroup> GetWaveTest(int wave_number)
+    {
+        List<EnemyGroup> enemy_groups = new List<EnemyGroup>();
+        switch (wave_number)
+        {
+            case 1:
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Brute }));
+                break;
+            case 2:
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Ranger }));
+                break;
+            case 3:
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.Parasite, EnemyType.Parasite }));
+                break;
+            default:
+                enemy_groups.Add(new EnemyGroup(new List<EnemyType> { EnemyType.ChunkyBoi }));
+                break;
+        }
+        return enemy_groups;
+    }*/
 }
